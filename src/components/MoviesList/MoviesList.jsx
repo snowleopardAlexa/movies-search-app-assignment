@@ -1,17 +1,21 @@
 import { useEffect } from 'react'
 import './MoviesList.scss'
+import movieApi from "../apis/movieApi"
+import { APIKey } from '../apis/movieApiKey'
 
 const MoviesList = () => {
-
-// make API call
-// useEffect
-// create function fetch movies
-// use async / await - return promise
-// import movies api from omdb from movieApi
-// import apiKey
-// catch error
-// console log error and response
-// call function once
+useEffect(() => {
+    const movieText = 'Cat'
+    const fetchMovies = async() => {
+        const response = await movieApi
+           .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
+           .catch((err) => {
+             console.log("Error :", err)
+        })
+        console.log("API RESPONSE ", response)
+    }
+    fetchMovies()
+}, [])
     return (
         <div className="container">
           <div className="background__image"></div>
