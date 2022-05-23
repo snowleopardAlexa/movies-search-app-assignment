@@ -29,8 +29,25 @@ const movieSlice = createSlice ({
         // action
         addMovies: (state, {payload}) => {
             state.movies = payload;
-        }
+        },
     },
+    extraReducers: {
+      // object
+      [fetchAsyncMovies.pending] : () => {
+          console.log("Pending")
+      },
+      //
+      [fetchAsyncMovies.fulfilled]: (state, {payload}) => {
+          console.log("Fetched Successfully!")
+          // we take whatever initial state is (movies)
+          // we assign payload to movies
+          // .. spread operator
+          return {...state, movies: payload }
+      },
+      [fetchAsyncMovies.rejected]: () => {
+          console.log("Rejected")
+      }
+    }
 })
 
 // export actions and reducer
