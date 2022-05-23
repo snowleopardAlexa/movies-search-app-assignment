@@ -7,9 +7,9 @@ exports["default"] = exports.getAllMovies = exports.addMovies = exports.fetchAsy
 
 var _toolkit = require("@reduxjs/toolkit");
 
-var _movieApi = _interopRequireDefault(require("../../apis/movieApi"));
+var _movieApi = _interopRequireDefault(require("../../components/apis/movieApi"));
 
-var _movieApiKey = require("../../apis/movieApiKey");
+var _movieApiKey = require("../../components/apis/movieApiKey");
 
 var _extraReducers;
 

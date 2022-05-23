@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { getAllMovies } from "../redux/movies/movieSlice";
+import { getAllMovies } from "../../redux/movies/movieSlice";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MoviesList.scss";
 

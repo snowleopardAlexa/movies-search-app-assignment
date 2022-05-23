@@ -3,7 +3,7 @@ import MoviesList from '../MoviesList/MoviesList'
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 // we can fetch async movies because we export it in movieSlice by adding export to const fetchAsyncMovies
-import { fetchAsyncMovies } from "../redux/movies/movieSlice";
+import { fetchAsyncMovies } from "../../redux/movies/movieSlice";
 
 const Home = () => {
     // whenever I get values from api, I want to dispatch an action

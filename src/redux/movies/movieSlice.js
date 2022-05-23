@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import movieApi from "../../apis/movieApi";
-import { APIKey } from "../../apis/movieApiKey";
+import movieApi from "../../components/apis/movieApi";
+import { APIKey } from "../../components/apis/movieApiKey";
 
 // create async action creator in order to add extra reducers
 // createAsyncThunk takes two arguments - 1. string for async creator identifier, 2. payload creator callback function, 3. there is a third parameters to create async thunk wich is an object but we don't need it for this project
