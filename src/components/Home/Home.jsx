@@ -11,7 +11,7 @@ const Home = () => {
     // react hook useDispatch can't be called inside callback function
     const dispatch = useDispatch();
     useEffect(() => {
-      dispatch(fetchAsyncMovies)
+      dispatch(fetchAsyncMovies())
     }, [dispatch]);
     return (
         <>
