@@ -1,9 +1,11 @@
+//import { Link } from "react-router-dom";
 
 
 const MovieDetail = () => {
     return (
         <div>
-            MovieDetail
+         <h1>Movie detail</h1>
+       
         </div>
     );
 };
