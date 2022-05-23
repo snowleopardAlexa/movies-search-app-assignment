@@ -14,7 +14,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 // create the store
 var store = (0, _toolkit.configureStore)({
   // reducer is an object
-  reducer: _movieSlice["default"]
+  reducer: {
+    movies: _movieSlice["default"]
+  }
 }); // provide our store to our component
 
 exports.store = store;
