@@ -1,0 +1,110 @@
+In order to achieve this functionality:
+
+- we fetch movies from the server
+- we add movies to redux store
+- retrieve movies from redux store
+- display movies on the screen
+
+we are using synchronous action creators
+
+WE WANT TO --> convert synchronous action creators into ASYNC action creators
+with a help of MIDDLEWARE THUNK 
+
+- Why Api call with the help of async action creator is better than a call with synchronous action creator?
+With async action creator we can add extraReducers 
+
+
+
+SYNCHRONOUS ACTION CREATOR 
+
+MOVIESLICE.JS
+
+import { createSlice } from '@reduxjs/toolkit'
+
+// setup intial state that equals to movies 
+// movies is property
+const initialState = {
+    movies: {}
+}
+
+// create slice
+const movieSlice = createSlice ({
+    name: 'movies',
+    initialState,
+    // actions are inside reducers
+    reducers: {
+        // action
+        addMovies: (state, {payload}) => {
+            state.movies = payload;
+        }
+    },
+})
+
+// export actions and reducer
+export const { addMovies } = movieSlice.actions
+// get a value from store - state, name of the movieSlice, and name of the property from initialState
+export const getAllMovies = (state) => state.movies.movies
+export default movieSlice.reducer
+
+
+STORE.JS
+
+import { configureStore } from '@reduxjs/toolkit'
+import moviesReducer from "./movies/movieSlice"
+
+// create the store
+export const store = configureStore({
+    // reducer is an object
+    reducer: {
+        movies: moviesReducer
+    }
+})
+
+HOME.JS
+
+import './Home.scss'
+import MoviesList from '../MoviesList/MoviesList'
+import { useEffect } from "react";
+import movieApi from "../apis/movieApi";
+import { APIKey } from "../apis/movieApiKey";
+import { useDispatch } from "react-redux";
+import { addMovies } from "../../redux/movies/movieSlice";
+
+const Home = () => {
+    const movieText = "Cat";
+    // whenever I get values from api, I want to dispatch an action
+    // after dispatch - data is sent to reducer - this caused the state to update!
+    // react hook useDispatch can't be called inside callback function
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      const fetchMovies = async () => {
+        const response = await movieApi
+          .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
+          .catch((err) => {
+            console.log("Error :", err);
+          });
+        // dispatch action addMovies - pass response.data - data is the key which contains all the resuslts
+        dispatch(addMovies(response.data));
+      };
+      fetchMovies();
+    }, []);
+    return (
+        <>
+        <div className="home__container">
+          <div className="search__box">
+              <input
+                type="text"
+                placeholder="Search movie..."
+              />
+          </div>
+        </div>
+        <MoviesList />
+        </>
+    );
+};
+
+export default Home;
+
+
+
