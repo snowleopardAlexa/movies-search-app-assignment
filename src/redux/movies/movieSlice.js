@@ -15,10 +15,23 @@ async() => {
     return response.data
 })
 
+// fetch detail page
+export const fetchAsyncMovieDetail = createAsyncThunk (
+    "movies/fetchAsyncMovieDetail", 
+    async(id) => {
+        const response = await movieApi.get(
+            // parameter i - id, parameter Plot - full - from omdb parameters website
+            `?apiKey=${APIKey}&i=${id}$Plot=full`
+        )
+        return response.data
+      }
+    )
+
 // setup intial state that equals to movies 
 // movies is property
 const initialState = {
-    movies: {}
+    movies: {},
+    selectMovieDetail: {}
 }
 
 // create slice
@@ -47,6 +60,11 @@ const movieSlice = createSlice ({
       },
       [fetchAsyncMovies.rejected]: () => {
           console.log("Rejected")
+      },
+      // movie detail page
+      [fetchAsyncMovieDetail.fulfilled]: (state, { payload }) => {
+          console.log("Fetched Successfully")
+          return { ...state, selectMovieDetail: payload}
       }
     }
 })

@@ -14,7 +14,6 @@ with a help of MIDDLEWARE THUNK
 With async action creator we can add extraReducers 
 
 
-
 SYNCHRONOUS ACTION CREATOR 
 
 MOVIESLICE.JS
@@ -106,5 +105,15 @@ const Home = () => {
 
 export default Home;
 
+- MOVIES DETAILS PAGE --> if we want to fetch movie detail data from API call, we have to 
+add export const fetchAsyncMovieDetail to movieSlice.js and make:
+- async call based on { id }
+- change apiKey - include parameter i --> valid IMDb ID 
+- change apiKey - include paramteter plot --> either short or full 
+!!! --> check Parameters on OMDb API website (REST API parameters)
+- write extra reducer for it - fetchAsyncMovieDetail.fullfilled
 
+MoviesDetails.jsx
 
+-  get the ID to pass to async action creator
+- we get the ID with the use of useParams

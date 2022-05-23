@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.getAllMovies = exports.addMovies = exports.fetchAsyncMovies = void 0;
+exports["default"] = exports.getAllMovies = exports.addMovies = exports.fetchAsyncMovieDetail = exports.fetchAsyncMovies = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
@@ -44,12 +44,36 @@ var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)('movies/fetchAsyncMovies',
       }
     }
   });
+}); // fetch detail page
+
+exports.fetchAsyncMovies = fetchAsyncMovies;
+var fetchAsyncMovieDetail = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMovieDetail", function _callee2(id) {
+  var response;
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return regeneratorRuntime.awrap(_movieApi["default"].get( // parameter i - id, parameter Plot - full - from omdb parameters website
+          "?apiKey=".concat(_movieApiKey.APIKey, "&i=").concat(id, "$Plot=full")));
+
+        case 2:
+          response = _context2.sent;
+          return _context2.abrupt("return", response.data);
+
+        case 4:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
 }); // setup intial state that equals to movies 
 // movies is property
 
-exports.fetchAsyncMovies = fetchAsyncMovies;
+exports.fetchAsyncMovieDetail = fetchAsyncMovieDetail;
 var initialState = {
-  movies: {}
+  movies: {},
+  selectMovieDetail: {}
 }; // create slice
 
 var movieSlice = (0, _toolkit.createSlice)({
@@ -76,6 +100,12 @@ var movieSlice = (0, _toolkit.createSlice)({
     });
   }), _defineProperty(_extraReducers, fetchAsyncMovies.rejected, function () {
     console.log("Rejected");
+  }), _defineProperty(_extraReducers, fetchAsyncMovieDetail.fulfilled, function (state, _ref3) {
+    var payload = _ref3.payload;
+    console.log("Fetched Successfully");
+    return _objectSpread({}, state, {
+      selectMovieDetail: payload
+    });
   }), _extraReducers)
 }); // export actions and reducer
 
