@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import movieApi from "../apis/movieApi";
-import { APIKey } from "../apis/movieApiKey";
+import movieApi from "../../apis/movieApi";
+import { APIKey } from "../../apis/movieApiKey";
 
 // create async action creator in order to add extra reducers
 // createAsyncThunk takes two arguments - 1. string for async creator identifier, 2. payload creator callback function, 3. there is a third parameters to create async thunk wich is an object but we don't need it for this project
-const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', 
+// we add export to because we can't import fetchAsyncMovies from Home
+export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', 
 async() => {
     const movieText = "Cat";
     const response = await movieApi

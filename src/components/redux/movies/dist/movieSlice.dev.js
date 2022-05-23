@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.getAllMovies = exports.addMovies = void 0;
+exports["default"] = exports.getAllMovies = exports.addMovies = exports.fetchAsyncMovies = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
-var _movieApi = _interopRequireDefault(require("../apis/movieApi"));
+var _movieApi = _interopRequireDefault(require("../../apis/movieApi"));
 
-var _movieApiKey = require("../apis/movieApiKey");
+var _movieApiKey = require("../../apis/movieApiKey");
 
 var _extraReducers;
 
@@ -23,6 +23,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 // create async action creator in order to add extra reducers
 // createAsyncThunk takes two arguments - 1. string for async creator identifier, 2. payload creator callback function, 3. there is a third parameters to create async thunk wich is an object but we don't need it for this project
+// we add export to because we can't import fetchAsyncMovies from Home
 var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)('movies/fetchAsyncMovies', function _callee() {
   var movieText, response;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -46,6 +47,7 @@ var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)('movies/fetchAsyncMovies',
 }); // setup intial state that equals to movies 
 // movies is property
 
+exports.fetchAsyncMovies = fetchAsyncMovies;
 var initialState = {
   movies: {}
 }; // create slice
