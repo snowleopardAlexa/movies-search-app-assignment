@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.getAllMovies = exports.addMovies = exports.fetchAsyncMovieDetail = exports.fetchAsyncMovies = void 0;
+exports["default"] = exports.getSelectedMovieDetail = exports.getAllMovies = exports.addMovies = exports.fetchAsyncMovieDetail = exports.fetchAsyncMovies = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
@@ -55,7 +55,8 @@ var fetchAsyncMovieDetail = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMov
         case 0:
           _context2.next = 2;
           return regeneratorRuntime.awrap(_movieApi["default"].get( // parameter i - id, parameter Plot - full - from omdb parameters website
-          "?apiKey=".concat(_movieApiKey.APIKey, "&i=").concat(id, "$Plot=full")));
+          // use & = and 
+          "?apiKey=".concat(_movieApiKey.APIKey, "&i=").concat(id, "&Plot=full")));
 
         case 2:
           response = _context2.sent;
@@ -115,8 +116,15 @@ exports.addMovies = addMovies;
 
 var getAllMovies = function getAllMovies(state) {
   return state.movies.movies;
-};
+}; // export selected movie detail
+
 
 exports.getAllMovies = getAllMovies;
+
+var getSelectedMovieDetail = function getSelectedMovieDetail(state) {
+  return state.movies.selectMovieDetail;
+};
+
+exports.getSelectedMovieDetail = getSelectedMovieDetail;
 var _default = movieSlice.reducer;
 exports["default"] = _default;

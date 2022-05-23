@@ -116,4 +116,49 @@ add export const fetchAsyncMovieDetail to movieSlice.js and make:
 MoviesDetails.jsx
 
 -  get the ID to pass to async action creator
-- we get the ID with the use of useParams
+-  we get the ID with the use of useParams
+-  dispatch async action creator --> how? --> use useEffect
+-  get details from the store with the use of useSelector 
+-  dispatch async action creator
+-  pass id into function call ()
+-  add dispatch and imdbID to dependency - WARNING
+
+    // get the ID to pass to async action creator
+    // we get the ID with the use of useParams hook
+    const { imdbID } = useParams()
+    // dispatch async action creator --> how? --> use useEffect
+    const dispatch = useDispatch()
+    // get details from the store with the use of useSelector 
+    const data = useSelector(getSelectedMovieDetail)
+    useEffect(() => {
+      // dispatch async action creator
+      // pass id into function call ()
+      dispatch(fetchAsyncMovieDetail(imdbID))
+      // add dispatch and imdbID to dependency - WARNING
+    }, [dispatch, imdbID])
+
+- export selected movie detail in movieSlice
+
+// export actions and reducer
+export const { addMovies } = movieSlice.actions
+// get a value from store - state, name of the movieSlice, and name of the property from initialState
+export const getAllMovies = (state) => state.movies.movies
+// export selected movie detail
+export const getSelectedMovieDetail = (state) => state.movies.selectMovieDetail
+export default movieSlice.reducer
+
+- console log data to console in MoviesDetails.jsx
+
+    // log complete detail data in console
+    console.log(data)
+    useEffect(() => {
+      // dispatch async action creator
+      // pass id into function call ()
+      dispatch(fetchAsyncMovieDetail(imdbID))
+      // add dispatch and imdbID to dependency - WARNING
+    }, [dispatch, imdbID])
+
+- 
+
+
+

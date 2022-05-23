@@ -21,7 +21,8 @@ export const fetchAsyncMovieDetail = createAsyncThunk (
     async(id) => {
         const response = await movieApi.get(
             // parameter i - id, parameter Plot - full - from omdb parameters website
-            `?apiKey=${APIKey}&i=${id}$Plot=full`
+            // use & = and 
+            `?apiKey=${APIKey}&i=${id}&Plot=full`
         )
         return response.data
       }
@@ -73,4 +74,6 @@ const movieSlice = createSlice ({
 export const { addMovies } = movieSlice.actions
 // get a value from store - state, name of the movieSlice, and name of the property from initialState
 export const getAllMovies = (state) => state.movies.movies
+// export selected movie detail
+export const getSelectedMovieDetail = (state) => state.movies.selectMovieDetail
 export default movieSlice.reducer
