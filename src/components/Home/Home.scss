@@ -1,0 +1,14 @@
+@import '../../globalStyles/variables';
+
+.home__container {
+    padding: 20px;
+    background-color: $night-theme-color;
+    .search__box {
+        input {
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+        }
+    }
+}
