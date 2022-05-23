@@ -1,0 +1,9 @@
+@import '../../globalStyles/variables';
+
+.header {
+    height: 80px;
+    background-color: $night-theme-color;
+    img {
+      margin-left: 20px;
+    }
+}

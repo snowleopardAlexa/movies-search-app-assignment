@@ -1,0 +1,10 @@
+/********** GLOBAL STYLES **********/
+/********** COLORS **********/
+/********** FONTS **********/
+.header {
+  height: 80px;
+  background-color: #0A1014;
+}
+.header img {
+  margin-left: 20px;
+}
