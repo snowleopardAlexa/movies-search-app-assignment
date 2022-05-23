@@ -2,9 +2,14 @@ import './MoviesList.scss'
 
 const MoviesList = () => {
     return (
-        <div>
-           <h1>MoviesList</h1>
+        <div className="container">
+          <div className="background__image"></div>
+           <h3>Don't know what to search?</h3>
+           <p>Here's an offer that you can't refuse</p>
         </div>
+     
+      
+       
     );
 };
 

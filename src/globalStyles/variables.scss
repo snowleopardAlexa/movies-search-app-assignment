@@ -8,10 +8,14 @@ $grapefruit-color: #FF4040;
 $night-theme-color: #0A1014;
 $grey-color: #1B2329;
 $fog-color: #353F4C;
-$light-fog-color: #353F4C;
+$light-fog-color: #7A8C99;
 $milk-color: #fff;
 
 /********** FONTS **********/
 
-$font-light-fog: #353F4C;
+$font-light-fog: #7A8C99;
 $font-milk: #fff;
+
+/********** BREAKPOINTS - RESPONSIVE VIEW **********/
+
+$breakpoint-tablet: 768px;
