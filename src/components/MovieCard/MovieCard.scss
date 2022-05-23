@@ -1,0 +1,10 @@
+@import '../../globalStyles/variables';
+
+.movie__card {
+  cursor: pointer;
+  margin: 0 auto;
+  img {
+      width: 100%;
+      height: 100%;
+  }
+}
