@@ -21,9 +21,42 @@ const MovieDetail = () => {
     }, [dispatch, imdbID])
 
     return (
-        <div>
-      
-       
+        <div className="movie__section">
+         <div className="section__left">
+             <div className="movie__title">{data.Title}</div>
+             <div className="movie__rating">
+                 <span>
+                     IMDB Rating icon imdb {data.raiting}
+                 </span>
+                 <span>
+                     IMDB Rating rotten tomatoes {data.raiting} 
+                 </span>
+                 <span>
+                     IMDB Rating heart icon Add to favourites {data.raiting}
+                 </span>
+             </div>
+             <div className="movie__info">
+                 <span>
+                     <h4>Plot</h4>
+                     {data.Plot}
+                 </span>
+                 <div className="movie__info__details">
+                     <span>
+                         <h4>Cast</h4>
+                         {data.Actors}
+                     </span>
+                     <span>
+                         {data.Genre}
+                     </span>
+                     <span>
+                         {data.Director}
+                     </span>
+                 </div>
+             </div>
+         </div>
+         <div className="section__right">
+             <img src={data.Poster} alt={data.Title} />
+         </div>
         </div>
     );
 };
