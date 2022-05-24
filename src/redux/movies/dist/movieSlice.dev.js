@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.getSelectedMovieDetail = exports.getAllMovies = exports.addMovies = exports.fetchAsyncMovieDetail = exports.fetchAsyncMovies = void 0;
+exports["default"] = exports.getSelectedMovieDetail = exports.getAllMovies = exports.removeSelectedMovieDetail = exports.fetchAsyncMovieDetail = exports.fetchAsyncMovies = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
@@ -82,16 +82,16 @@ var movieSlice = (0, _toolkit.createSlice)({
   initialState: initialState,
   // actions are inside reducers
   reducers: {
-    // action
-    addMovies: function addMovies(state, _ref) {
-      var payload = _ref.payload;
-      state.movies = payload;
+    // remove previous title of the movie
+    removeSelectedMovieDetail: function removeSelectedMovieDetail(state) {
+      // empty object
+      state.selectMovieDetail = {};
     }
   },
   extraReducers: (_extraReducers = {}, _defineProperty(_extraReducers, fetchAsyncMovies.pending, function () {
     console.log("Pending");
-  }), _defineProperty(_extraReducers, fetchAsyncMovies.fulfilled, function (state, _ref2) {
-    var payload = _ref2.payload;
+  }), _defineProperty(_extraReducers, fetchAsyncMovies.fulfilled, function (state, _ref) {
+    var payload = _ref.payload;
     console.log("Fetched Successfully!"); // we take whatever initial state is (movies)
     // we assign payload to movies
     // .. spread operator
@@ -101,8 +101,8 @@ var movieSlice = (0, _toolkit.createSlice)({
     });
   }), _defineProperty(_extraReducers, fetchAsyncMovies.rejected, function () {
     console.log("Rejected");
-  }), _defineProperty(_extraReducers, fetchAsyncMovieDetail.fulfilled, function (state, _ref3) {
-    var payload = _ref3.payload;
+  }), _defineProperty(_extraReducers, fetchAsyncMovieDetail.fulfilled, function (state, _ref2) {
+    var payload = _ref2.payload;
     console.log("Fetched Successfully");
     return _objectSpread({}, state, {
       selectMovieDetail: payload
@@ -110,9 +110,9 @@ var movieSlice = (0, _toolkit.createSlice)({
   }), _extraReducers)
 }); // export actions and reducer
 
-var addMovies = movieSlice.actions.addMovies; // get a value from store - state, name of the movieSlice, and name of the property from initialState
+var removeSelectedMovieDetail = movieSlice.actions.removeSelectedMovieDetail; // get a value from store - state, name of the movieSlice, and name of the property from initialState
 
-exports.addMovies = addMovies;
+exports.removeSelectedMovieDetail = removeSelectedMovieDetail;
 
 var getAllMovies = function getAllMovies(state) {
   return state.movies.movies;

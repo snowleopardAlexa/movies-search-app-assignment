@@ -41,10 +41,11 @@ const movieSlice = createSlice ({
     initialState,
     // actions are inside reducers
     reducers: {
-        // action
-        addMovies: (state, {payload}) => {
-            state.movies = payload;
-        },
+        // remove previous title of the movie
+        removeSelectedMovieDetail: (state) => {
+            // empty object
+            state.selectMovieDetail = {}
+        }
     },
     extraReducers: {
       // object
@@ -71,7 +72,7 @@ const movieSlice = createSlice ({
 })
 
 // export actions and reducer
-export const { addMovies } = movieSlice.actions
+export const { removeSelectedMovieDetail } = movieSlice.actions
 // get a value from store - state, name of the movieSlice, and name of the property from initialState
 export const getAllMovies = (state) => state.movies.movies
 // export selected movie detail

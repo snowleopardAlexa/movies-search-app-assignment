@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncMovieDetail,
   getSelectedMovieDetail,
+  removeSelectedMovieDetail,
 } from "../../redux/movies/movieSlice";
 import { AiOutlineHeart } from 'react-icons/ai'
 
@@ -22,11 +23,20 @@ const MovieDetail = () => {
     // dispatch async action creator
     // pass id into function call ()
     dispatch(fetchAsyncMovieDetail(imdbID));
+    // cleanup function - remove previous title of the movie after clicking on the next movie
+    dispatch(fetchAsyncMovieDetail(imdbID))
+    return() => {
+        dispatch(removeSelectedMovieDetail())
+    }
     // add dispatch and imdbID to dependency - WARNING
   }, [dispatch, imdbID]);
 
   return (
     <div className="movie__section">
+        {Object.keys(data).length === 0 ? (
+            <div>...Loading</div>
+        ) : (
+      <>
       <div className="section__left">
         <Link to="/">
           <img src="/icons/icon-arrow-grey.svg" alt="arrow-come-back" />
@@ -102,9 +112,12 @@ const MovieDetail = () => {
           </div>
         </div>
       </div>
+
       <div className="section__right">
         <img src={data.Poster} alt={data.Title} />
       </div>
+      </>
+       )}
     </div>
   );
 };

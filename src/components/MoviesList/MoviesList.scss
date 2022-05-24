@@ -1,15 +1,17 @@
 @import "../../globalStyles/variables";
 
 .container {
+  padding: 40px;
   background-color: $night-theme-color;
   height: 100vh;
   .movie__list {
+    margin-top: -60px;
     color: $font-milk;
     .movie__container {
       padding: 20px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      grid-gap: 10px;
+      grid-gap: 12px;
     }
   }
 

@@ -1,8 +1,10 @@
 /********** GLOBAL STYLES **********/
 /********** COLORS **********/
 /********** FONTS **********/
+/********** BREAKPOINTS - RESPONSIVE VIEW **********/
 .header {
   height: 60px;
+  padding: 40px;
   background-color: #0A1014;
 }
 .header img {

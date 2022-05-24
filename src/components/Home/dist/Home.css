@@ -1,8 +1,9 @@
 /********** GLOBAL STYLES **********/
 /********** COLORS **********/
 /********** FONTS **********/
+/********** BREAKPOINTS - RESPONSIVE VIEW **********/
 .home__container {
-  padding: 20px;
+  padding: 60px;
   background-color: #0A1014;
 }
 .home__container .search__box input {

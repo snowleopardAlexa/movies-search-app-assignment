@@ -3,13 +3,17 @@
 /********** FONTS **********/
 /********** BREAKPOINTS - RESPONSIVE VIEW **********/
 .movie__section {
-  background-color: #0A1014;
   display: flex;
-  justify-content: space-evenly;
+  background-color: #0A1014;
   padding: 0px 80px;
   color: #fff;
   font-weight: 400;
-  height: 100vh;
+  height: 150vh;
+}
+@media (max-width: 768px) {
+  .movie__section {
+    flex-direction: column;
+  }
 }
 .movie__section .section__left {
   margin-top: 65px;
@@ -173,4 +177,10 @@
 
 .section__right {
   margin-top: 120px;
+}
+@media (max-width: 768px) {
+  .section__right {
+    margin-top: 20px;
+    margin: 0 auto;
+  }
 }
