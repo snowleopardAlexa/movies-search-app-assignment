@@ -6,6 +6,7 @@ import {
   fetchAsyncMovieDetail,
   getSelectedMovieDetail,
 } from "../../redux/movies/movieSlice";
+import { AiOutlineHeart } from 'react-icons/ai'
 
 const MovieDetail = () => {
   // get the ID to pass to async action creator
@@ -69,7 +70,7 @@ const MovieDetail = () => {
               <div className="rating__favorites">
               <div className="rating__container">
                   <span className="color">
-                   <img src="/icons/icon-heart-white.svg" alt="imdb" />            
+                   <AiOutlineHeart size="0.8em" />         
                   </span>
                   <span className="blank">
                     <p>Add to Favorites</p>
@@ -109,3 +110,5 @@ const MovieDetail = () => {
 };
 
 export default MovieDetail;
+
+

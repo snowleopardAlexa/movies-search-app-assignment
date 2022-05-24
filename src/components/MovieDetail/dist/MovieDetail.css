@@ -98,7 +98,7 @@
 .movie__rating .rating__favorites .rating__container .blank {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin-left: 0px;
+  margin-left: -8px;
   color: #fff;
   border-top: 1px solid #7A8C99;
   border-right: 1px solid #7A8C99;
