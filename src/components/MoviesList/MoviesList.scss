@@ -3,12 +3,22 @@
 .container {
   background-color: $night-theme-color;
   height: 100vh;
+  .movie__list {
+    color: $font-milk;
+    .movie__container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-gap: 10px;
+    }
+  }
+
   h3 {
     margin-top: -250px;
     color: $font-milk;
     text-align: center;
     @media (max-width: $breakpoint-tablet) {
-      margin-top: -350px;
+      margin-top: -320px;
     }
   }
   p {

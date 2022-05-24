@@ -1,0 +1,12 @@
+/********** GLOBAL STYLES **********/
+/********** COLORS **********/
+/********** FONTS **********/
+/********** BREAKPOINTS - RESPONSIVE VIEW **********/
+.movie__card {
+  cursor: pointer;
+  margin: 0 auto;
+}
+.movie__card img {
+  width: 100%;
+  height: 100%;
+}

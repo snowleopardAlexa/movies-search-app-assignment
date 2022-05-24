@@ -1,24 +1,35 @@
-import { useEffect } from 'react'
-import './MoviesList.scss'
+import { useSelector } from "react-redux";
+import { getAllMovies } from "../../redux/movies/movieSlice";
+import MovieCard from "../MovieCard/MovieCard";
+import "./MoviesList.scss";
+
 
 const MoviesList = () => {
 
-// make API call
-// useEffect
-// create function fetch movies
-// use async / await - return promise
-// import movies api from omdb from movieApi
-// import apiKey
-// catch error
-// console log error and response
-// call function once
-    return (
-        <div className="container">
-          <div className="background__image"></div>
-           <h3>Don't know what to search?</h3>
-           <p>Here's an offer that you can't refuse</p>
+  const movies = useSelector(getAllMovies)  
+  // show movies on the screen
+  let showMovies = ''
+
+  showMovies = movies.Response === 'True' ? (
+    movies.Search.map((movie, index) => (
+    // data - prop that we pass to MovieCard.jsx component
+      <MovieCard key={index} data={movie} />
+   ))
+  ) : (
+  <div className="movies__error">
+      <h3>{movies.Error}</h3>
+  </div>
+  )
+  return (
+    <div className="container">
+        <div className="movie__list">
+            <div className="movie__container">{showMovies}</div>
         </div>
-    );
+      <div className="background__image"></div>
+      <h3>Don't know what to search?</h3>
+      <p>Here's an offer that you can't refuse</p>
+    </div>
+  );
 };
 
 export default MoviesList;

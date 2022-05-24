@@ -1,0 +1,176 @@
+/********** GLOBAL STYLES **********/
+/********** COLORS **********/
+/********** FONTS **********/
+/********** BREAKPOINTS - RESPONSIVE VIEW **********/
+.movie__section {
+  background-color: #0A1014;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0px 80px;
+  color: #fff;
+  font-weight: 400;
+  height: 100vh;
+}
+.movie__section .section__left {
+  margin-top: 65px;
+}
+.movie__section .section__left img {
+  padding-left: 50px;
+}
+.movie__section .section__left h5 {
+  margin-top: 20px;
+  padding-left: 50px;
+}
+.movie__section .section__left .letter {
+  background-color: grey;
+  padding: 4px;
+  font-size: 0.5rem;
+  color: black;
+  border-radius: 3px;
+  margin-left: 3px;
+}
+
+.movie__rating {
+  padding-left: 50px;
+  margin-top: 20px;
+  color: #7A8C99;
+}
+.movie__rating .rating__list > li {
+  display: inline-block;
+}
+.movie__rating .rating__imdb .rating__container {
+  padding: 10px;
+}
+.movie__rating .rating__imdb .rating__container .color {
+  background-color: #FF9F1C;
+  padding: 8px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: -10px;
+}
+.movie__rating .rating__imdb .rating__container .blank {
+  margin-left: 0px;
+  color: #fff;
+  border-top: 1px solid #7A8C99;
+  border-right: 1px solid #7A8C99;
+  border-bottom: 1px solid #7A8C99;
+  padding: 7px;
+}
+.movie__rating .rating__imdb .rating__container .blank p {
+  font-size: 0.8rem;
+  display: inline-block;
+}
+.movie__rating .rating__rotten__tomatoes .rating__container {
+  padding: 10px;
+}
+.movie__rating .rating__rotten__tomatoes .rating__container .color {
+  background-color: #FF4040;
+  padding: 8px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: -10px;
+}
+.movie__rating .rating__rotten__tomatoes .rating__container .blank {
+  margin-left: 0px;
+  color: #fff;
+  border-top: 1px solid #7A8C99;
+  border-right: 1px solid #7A8C99;
+  border-bottom: 1px solid #7A8C99;
+  padding: 7px;
+}
+.movie__rating .rating__rotten__tomatoes .rating__container .blank p {
+  font-size: 0.8rem;
+  display: inline-block;
+}
+.movie__rating .rating__favorites .rating__container {
+  padding: 10px;
+}
+.movie__rating .rating__favorites .rating__container .color {
+  background-color: #0A1014;
+  border-top: 1px solid #7A8C99;
+  border-left: 1px solid #7A8C99;
+  border-bottom: 1px solid #7A8C99;
+  padding: 7px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: -10px;
+}
+.movie__rating .rating__favorites .rating__container .blank {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-left: 0px;
+  color: #fff;
+  border-top: 1px solid #7A8C99;
+  border-right: 1px solid #7A8C99;
+  border-bottom: 1px solid #7A8C99;
+  padding: 7px;
+}
+.movie__rating .rating__favorites .rating__container .blank p {
+  font-size: 0.8rem;
+  display: inline-block;
+}
+.movie__rating img {
+  margin-left: -50px;
+}
+.movie__rating span {
+  margin-right: 0px;
+}
+
+.movie__title {
+  font-size: 40px;
+  padding-left: 45px;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.movie__plot {
+  margin-top: 20px;
+  line-height: 1.8rem;
+  font-size: 0.9rem;
+}
+.movie__plot h4 {
+  color: #7A8C99;
+  padding: 10px;
+}
+.movie__plot p {
+  padding: 10px;
+}
+
+.movie__info {
+  padding: 40px;
+}
+
+.movie__info .plot {
+  margin-top: 20px;
+}
+.movie__info .plot h4 {
+  margin: 20px 0px 20px 0px;
+  color: #7A8C99;
+  font-size: 0.9rem;
+}
+
+.movie__info__details {
+  margin-top: 20px;
+  display: flex;
+  color: #7A8C99;
+}
+.movie__info__details span {
+  margin-top: 30px;
+  line-height: 20px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 0.8rem;
+  width: 100px;
+  display: inline-block;
+}
+.movie__info__details span h4 {
+  color: #7A8C99;
+  padding: 10px;
+}
+.movie__info__details span p {
+  padding: 10px;
+}
+
+.section__right {
+  margin-top: 120px;
+}
