@@ -10,7 +10,7 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _default = _axios["default"].create({
-  baseURL: 'http://www.omdbapi.com'
+  baseURL: 'https://www.omdbapi.com'
 });
 
 exports["default"] = _default;
