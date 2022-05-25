@@ -1,17 +1,15 @@
-import { useSelector } from "react-redux";
-import { getAllMovies } from "../../redux/movies/movieSlice";
-import MovieCard from "../MovieCard/MovieCard";
-import "./MoviesList.scss";
+import { useSelector } from "react-redux"
+import { getAllMovies } from "../../redux/movies/movieSlice"
+import MovieCard from "../MovieCard/MovieCard"
+import "./MoviesList.scss"
 
 const MoviesList = () => {
-  const movies = useSelector(getAllMovies);
-  // show movies on the screen
-  let showMovies = "";
+  const movies = useSelector(getAllMovies)
+  let showMovies = ""
 
   showMovies =
     movies.Response === "True" ? (
       movies.Search.map((movie, index) => (
-        // data - prop that we pass to MovieCard.jsx component
         <MovieCard key={index} data={movie} />
       ))
     ) : (
@@ -24,13 +22,13 @@ const MoviesList = () => {
       <div className="movie__list">
         <div className="movie__container">{showMovies}</div>
       </div>
-        <div className="background__image"></div>
-        <div className="image__text">
-          <h3>Don't know what to search?</h3>
-          <p>Here's an offer that you can't refuse</p>
-        </div>
+      <div className="background__image"></div>
+      <div className="image__text">
+        <h3>Don't know what to search?</h3>
+        <p>Here's an offer that you can't refuse</p>
       </div>
-  );
-};
+    </div>
+  )
+}
 
-export default MoviesList;
+export default MoviesList

@@ -21,10 +21,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// create async action creator in order to add extra reducers
-// createAsyncThunk takes two arguments - 1. string for async creator identifier, 2. payload creator callback function, 3. there is a third parameters to create async thunk wich is an object but we don't need it for this project
-// we add export to because we can't import fetchAsyncMovies from Home
-var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)('movies/fetchAsyncMovies', function _callee(term) {
+var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMovies", function _callee(term) {
   var response;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
@@ -43,8 +40,7 @@ var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)('movies/fetchAsyncMovies',
       }
     }
   });
-}); // fetch detail page
-
+});
 exports.fetchAsyncMovies = fetchAsyncMovies;
 var fetchAsyncMovieDetail = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMovieDetail", function _callee2(id) {
   var response;
@@ -53,9 +49,7 @@ var fetchAsyncMovieDetail = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMov
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return regeneratorRuntime.awrap(_movieApi["default"].get( // parameter i - id, parameter Plot - full - from omdb parameters website
-          // use & = and 
-          "?apiKey=".concat(_movieApiKey.APIKey, "&i=").concat(id, "&Plot=full")));
+          return regeneratorRuntime.awrap(_movieApi["default"].get("?apiKey=".concat(_movieApiKey.APIKey, "&i=").concat(id, "&Plot=full")));
 
         case 2:
           response = _context2.sent;
@@ -67,23 +61,17 @@ var fetchAsyncMovieDetail = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMov
       }
     }
   });
-}); // setup intial state that equals to movies 
-// movies is property
-
+});
 exports.fetchAsyncMovieDetail = fetchAsyncMovieDetail;
 var initialState = {
   movies: {},
   selectMovieDetail: {}
-}; // create slice
-
+};
 var movieSlice = (0, _toolkit.createSlice)({
-  name: 'movies',
+  name: "movies",
   initialState: initialState,
-  // actions are inside reducers
   reducers: {
-    // remove previous title of the movie
     removeSelectedMovieDetail: function removeSelectedMovieDetail(state) {
-      // empty object
       state.selectMovieDetail = {};
     }
   },
@@ -91,10 +79,7 @@ var movieSlice = (0, _toolkit.createSlice)({
     console.log("Pending");
   }), _defineProperty(_extraReducers, fetchAsyncMovies.fulfilled, function (state, _ref) {
     var payload = _ref.payload;
-    console.log("Fetched Successfully!"); // we take whatever initial state is (movies)
-    // we assign payload to movies
-    // .. spread operator
-
+    console.log("Fetched Successfully!");
     return _objectSpread({}, state, {
       movies: payload
     });
@@ -107,16 +92,13 @@ var movieSlice = (0, _toolkit.createSlice)({
       selectMovieDetail: payload
     });
   }), _extraReducers)
-}); // export actions and reducer
-
-var removeSelectedMovieDetail = movieSlice.actions.removeSelectedMovieDetail; // get a value from store - state, name of the movieSlice, and name of the property from initialState
-
+});
+var removeSelectedMovieDetail = movieSlice.actions.removeSelectedMovieDetail;
 exports.removeSelectedMovieDetail = removeSelectedMovieDetail;
 
 var getAllMovies = function getAllMovies(state) {
   return state.movies.movies;
-}; // export selected movie detail
-
+};
 
 exports.getAllMovies = getAllMovies;
 

@@ -1,35 +1,26 @@
-import { useEffect } from "react";
-import "./MovieDetail.scss";
-import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react'
+import './MovieDetail.scss'
+import { Link, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   fetchAsyncMovieDetail,
   getSelectedMovieDetail,
   removeSelectedMovieDetail,
-} from "../../redux/movies/movieSlice";
+} from '../../redux/movies/movieSlice'
 import { AiOutlineHeart } from 'react-icons/ai'
 
 const MovieDetail = () => {
-  // get the ID to pass to async action creator
-  // we get the ID with the use of useParams hook
-  const { imdbID } = useParams();
-  // dispatch async action creator --> how? --> use useEffect
-  const dispatch = useDispatch();
-  // get details from the store with the use of useSelector
-  const data = useSelector(getSelectedMovieDetail);
-  // log complete detail data in console
-  console.log(data);
+  const { imdbID } = useParams()
+  const dispatch = useDispatch()
+  const data = useSelector(getSelectedMovieDetail)
+  console.log(data)
   useEffect(() => {
-    // dispatch async action creator
-    // pass id into function call ()
-    dispatch(fetchAsyncMovieDetail(imdbID));
-    // cleanup function - remove previous title of the movie after clicking on the next movie
+    dispatch(fetchAsyncMovieDetail(imdbID))
     dispatch(fetchAsyncMovieDetail(imdbID))
     return() => {
         dispatch(removeSelectedMovieDetail())
     }
-    // add dispatch and imdbID to dependency - WARNING
-  }, [dispatch, imdbID]);
+  }, [dispatch, imdbID])
 
   return (
     <div className="movie__section">
@@ -122,6 +113,6 @@ const MovieDetail = () => {
   );
 };
 
-export default MovieDetail;
+export default MovieDetail
 
 
