@@ -92,10 +92,10 @@
   font-size: 0.8rem;
   display: inline-block;
 }
-.movie__rating .rating__favorites .rating__container {
+.movie__rating .rating__favorites .rating__container__grey {
   padding: 10px;
 }
-.movie__rating .rating__favorites .rating__container .color {
+.movie__rating .rating__favorites .rating__container__grey .grey {
   background-color: #0A1014;
   border-top: 1px solid #7A8C99;
   border-left: 1px solid #7A8C99;
@@ -105,7 +105,7 @@
   border-bottom-left-radius: 5px;
   margin-left: -10px;
 }
-.movie__rating .rating__favorites .rating__container .blank {
+.movie__rating .rating__favorites .rating__container__grey .text {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-left: -8px;
@@ -115,14 +115,36 @@
   border-bottom: 1px solid #7A8C99;
   padding: 7px;
 }
-.movie__rating .rating__favorites .rating__container .blank p {
+.movie__rating .rating__favorites .rating__container__grey .text p {
   font-size: 0.8rem;
   display: inline-block;
 }
-.movie__rating img {
+.movie__rating .rating__container__color {
+  padding: 10px;
+}
+.movie__rating .rating__container__color .color {
+  background-color: #FF4040;
+  padding: 8px;
+  border-radius: 5px;
+  margin-left: -10px;
+}
+.movie__rating .rating__container__color .text {
+  background-color: #FF4040;
+  border-radius: 5px;
+  margin-left: -8px;
+  color: #fff;
+  padding: 8px;
+}
+.movie__rating .rating__container__color .text p {
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+img {
   margin-left: -50px;
 }
-.movie__rating span {
+
+span {
   margin-right: 0px;
 }
 

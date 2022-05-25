@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './MovieDetail.scss'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,9 +7,12 @@ import {
   getSelectedMovieDetail,
   removeSelectedMovieDetail,
 } from '../../redux/movies/movieSlice'
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
 const MovieDetail = () => {
+  const [like, setLike] = useState(true)
+  const [count, setCount] = useState(0)
+  
   const { imdbID } = useParams()
   const dispatch = useDispatch()
   const data = useSelector(getSelectedMovieDetail)
@@ -69,19 +72,31 @@ const MovieDetail = () => {
             <li>
               {/* ADD TO FAVORITES */}
               <div className="rating__favorites">
-              <div className="rating__container">
-                  <span className="color">
-                   <AiOutlineHeart size="0.8em" />         
-                  </span>
-                  <span className="blank">
-                    <p>Add to Favorites</p>
-                  </span>
-                </div>
+              <div onClick={() => setLike((prevLike) => !prevLike)}>
+              {like ? (
+                  <div className="rating__container__grey"  onClick={() => setCount(count + 1)}>
+                    <span className="grey">
+                     <AiOutlineHeart size="0.8em" />         
+                    </span>
+                    <span className="text">
+                      <p>Add to Favorites</p>
+                    </span>
+                  </div>
+              ) : (
+                <div className="rating__container__color" onClick={() => setCount(count - 1)}>
+                <span className="color">
+                 <AiFillHeart size="0.8em" color="#fff" />         
+                </span>
+                <span className="text">
+                  <p>Added</p>
+                </span>
+              </div>
+              )}
+            </div>
               </div>
             </li>
           </ul>
         </div>
-
         <div className="movie__info">
           <span className="movie__plot">
             <h4>Plot</h4>
@@ -110,8 +125,8 @@ const MovieDetail = () => {
       </>
        )}
     </div>
-  );
-};
+  )
+}
 
 export default MovieDetail
 
