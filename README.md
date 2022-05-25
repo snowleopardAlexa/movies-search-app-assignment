@@ -56,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Instagram-Clone
 
-![Alt text](/public/console1.png?raw=true "Movies Search App Assignment")
+![Alt text](/src/readme/console1.png?raw=true "Movies Search App Assignment")
 
 ![Alt text](/public/console2.png?raw=true "Movies Search App Assignment")
 
