@@ -1,31 +1,33 @@
-import { useEffect } from "react";
-import "./MovieDetail.scss";
-import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react'
+import './MovieDetail.scss'
+import { Link, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   fetchAsyncMovieDetail,
   getSelectedMovieDetail,
-} from "../../redux/movies/movieSlice";
+  removeSelectedMovieDetail,
+} from '../../redux/movies/movieSlice'
+import { AiOutlineHeart } from 'react-icons/ai'
 
 const MovieDetail = () => {
-  // get the ID to pass to async action creator
-  // we get the ID with the use of useParams hook
-  const { imdbID } = useParams();
-  // dispatch async action creator --> how? --> use useEffect
-  const dispatch = useDispatch();
-  // get details from the store with the use of useSelector
-  const data = useSelector(getSelectedMovieDetail);
-  // log complete detail data in console
-  console.log(data);
+  const { imdbID } = useParams()
+  const dispatch = useDispatch()
+  const data = useSelector(getSelectedMovieDetail)
+  console.log(data)
   useEffect(() => {
-    // dispatch async action creator
-    // pass id into function call ()
-    dispatch(fetchAsyncMovieDetail(imdbID));
-    // add dispatch and imdbID to dependency - WARNING
-  }, [dispatch, imdbID]);
+    dispatch(fetchAsyncMovieDetail(imdbID))
+    dispatch(fetchAsyncMovieDetail(imdbID))
+    return() => {
+        dispatch(removeSelectedMovieDetail())
+    }
+  }, [dispatch, imdbID])
 
   return (
     <div className="movie__section">
+        {Object.keys(data).length === 0 ? (
+            <div>...Loading</div>
+        ) : (
+      <>
       <div className="section__left">
         <Link to="/">
           <img src="/icons/icon-arrow-grey.svg" alt="arrow-come-back" />
@@ -69,7 +71,7 @@ const MovieDetail = () => {
               <div className="rating__favorites">
               <div className="rating__container">
                   <span className="color">
-                   <img src="/icons/icon-heart-white.svg" alt="imdb" />            
+                   <AiOutlineHeart size="0.8em" />         
                   </span>
                   <span className="blank">
                     <p>Add to Favorites</p>
@@ -101,11 +103,16 @@ const MovieDetail = () => {
           </div>
         </div>
       </div>
+
       <div className="section__right">
         <img src={data.Poster} alt={data.Title} />
       </div>
+      </>
+       )}
     </div>
   );
 };
 
-export default MovieDetail;
+export default MovieDetail
+
+

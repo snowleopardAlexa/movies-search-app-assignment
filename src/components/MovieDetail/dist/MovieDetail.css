@@ -3,13 +3,23 @@
 /********** FONTS **********/
 /********** BREAKPOINTS - RESPONSIVE VIEW **********/
 .movie__section {
-  background-color: #0A1014;
   display: flex;
-  justify-content: space-evenly;
+  background-color: #0A1014;
   padding: 0px 80px;
   color: #fff;
   font-weight: 400;
-  height: 100vh;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .movie__section {
+    flex-direction: column;
+    padding: 0px 16px;
+  }
+}
+@media (max-width: 820px) {
+  .movie__section {
+    flex-direction: column;
+  }
 }
 .movie__section .section__left {
   margin-top: 65px;
@@ -98,7 +108,7 @@
 .movie__rating .rating__favorites .rating__container .blank {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin-left: 0px;
+  margin-left: -8px;
   color: #fff;
   border-top: 1px solid #7A8C99;
   border-right: 1px solid #7A8C99;
@@ -173,4 +183,18 @@
 
 .section__right {
   margin-top: 120px;
+  margin-left: 10px;
+}
+@media (max-width: 768px) {
+  .section__right {
+    margin-top: 20px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 820px) {
+  .section__right {
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
 }

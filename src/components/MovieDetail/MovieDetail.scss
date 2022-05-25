@@ -1,128 +1,133 @@
 @import "../../globalStyles/variables";
 
 .movie__section {
-  background-color: $night-theme-color;
   display: flex;
-  justify-content: space-evenly;
+  background-color: $night-theme-color;
   padding: 0px 80px;
   color: $font-milk;
   font-weight: 400;
-  height: 100vh;
+  height: 100%;
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    padding: 0px 16px;
+  }
+  @media (max-width: $breakpoint-laptop) {
+    flex-direction: column;
+  }
+
   .section__left {
-      margin-top: 65px;
-      img {
-          padding-left: 50px;
-      }
-      h5 {
-          margin-top: 20px;
-          padding-left: 50px;
-      }
-        .letter {
-            background-color: grey;
-            padding: 4px;
-            font-size: 0.5rem;
-            color: black;
-            border-radius: 3px;
-            margin-left: 3px;
-        }
-      }
+    margin-top: 65px;
+    img {
+      padding-left: 50px;
+    }
+    h5 {
+      margin-top: 20px;
+      padding-left: 50px;
+    }
+    .letter {
+      background-color: grey;
+      padding: 4px;
+      font-size: 0.5rem;
+      color: black;
+      border-radius: 3px;
+      margin-left: 3px;
+    }
+  }
 }
 
 .movie__rating {
   padding-left: 50px;
   margin-top: 20px;
   color: $font-light-fog;
-   .rating__list > li {
-       display: inline-block;
-   }
+  .rating__list > li {
+    display: inline-block;
+  }
 
   .rating__imdb {
-     .rating__container {
-         padding: 10px;
-        .color {
-            background-color: $mandarin-color;
-            padding: 8px;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            margin-left: -10px;
-          }
-          .blank {
-            p {
-                font-size: 0.8rem;
-                display: inline-block;
-            }
-            margin-left: 0px;
-            color: $font-milk;
-            border-top: 1px solid $font-light-fog;
-            border-right: 1px solid $font-light-fog;
-            border-bottom: 1px solid $font-light-fog;
-            padding: 7px;
-          }
-     } 
+    .rating__container {
+      padding: 10px;
+      .color {
+        background-color: $mandarin-color;
+        padding: 8px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-left: -10px;
+      }
+      .blank {
+        p {
+          font-size: 0.8rem;
+          display: inline-block;
+        }
+        margin-left: 0px;
+        color: $font-milk;
+        border-top: 1px solid $font-light-fog;
+        border-right: 1px solid $font-light-fog;
+        border-bottom: 1px solid $font-light-fog;
+        padding: 7px;
+      }
+    }
   }
 
   .rating__rotten__tomatoes {
     .rating__container {
-        padding: 10px;
-       .color {
-           background-color: $grapefruit-color;
-           padding: 8px;
-           border-top-left-radius: 5px;
-           border-bottom-left-radius: 5px;
-           margin-left: -10px;
-         }
-         .blank {
-           p {
-               font-size: 0.8rem;
-               display: inline-block;
-           }
-           margin-left: 0px;
-           color: $font-milk;
-           border-top: 1px solid $font-light-fog;
-           border-right: 1px solid $font-light-fog;
-           border-bottom: 1px solid $font-light-fog;
-           padding: 7px;
-         }
-    } 
+      padding: 10px;
+      .color {
+        background-color: $grapefruit-color;
+        padding: 8px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-left: -10px;
+      }
+      .blank {
+        p {
+          font-size: 0.8rem;
+          display: inline-block;
+        }
+        margin-left: 0px;
+        color: $font-milk;
+        border-top: 1px solid $font-light-fog;
+        border-right: 1px solid $font-light-fog;
+        border-bottom: 1px solid $font-light-fog;
+        padding: 7px;
+      }
+    }
   }
 
   .rating__favorites {
     .rating__container {
-        padding: 10px;
-       .color {
-           background-color: $night-theme-color;
-           border-top: 1px solid $font-light-fog;
-           border-left: 1px solid $font-light-fog;
-           border-bottom: 1px solid $font-light-fog;
-           padding: 7px;
-           border-top-left-radius: 5px;
-           border-bottom-left-radius: 5px;
-           margin-left: -10px;
-         }
-         .blank {
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-           p {
-               font-size: 0.8rem;
-               display: inline-block;
-           }
-           margin-left: 0px;
-           color: $font-milk;
-           border-top: 1px solid $font-light-fog;
-           border-right: 1px solid $font-light-fog;
-           border-bottom: 1px solid $font-light-fog;
-           padding: 7px;
-         }
-    }  
+      padding: 10px;
+      .color {
+        background-color: $night-theme-color;
+        border-top: 1px solid $font-light-fog;
+        border-left: 1px solid $font-light-fog;
+        border-bottom: 1px solid $font-light-fog;
+        padding: 7px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-left: -10px;
+      }
+      .blank {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        p {
+          font-size: 0.8rem;
+          display: inline-block;
+        }
+        margin-left: -8px;
+        color: $font-milk;
+        border-top: 1px solid $font-light-fog;
+        border-right: 1px solid $font-light-fog;
+        border-bottom: 1px solid $font-light-fog;
+        padding: 7px;
+      }
+    }
   }
-
-
 
   img {
-      margin-left: -50px;
+    margin-left: -50px;
   }
   span {
-     margin-right: 0px;
+    margin-right: 0px;
   }
 }
 
@@ -142,7 +147,7 @@
     padding: 10px;
   }
   p {
-      padding: 10px;
+    padding: 10px;
   }
 }
 
@@ -173,16 +178,26 @@
     font-size: 0.8rem;
     width: 100px;
     display: inline-block;
-      h4 {
-        color: $font-light-fog;
-        padding: 10px;
-      }
-      p {
-          padding: 10px;
-      }
+    h4 {
+      color: $font-light-fog;
+      padding: 10px;
+    }
+    p {
+      padding: 10px;
+    }
   }
 }
 
 .section__right {
-    margin-top: 120px;
+   margin-top: 120px;
+   margin-left: 10px;
+  @media (max-width: $breakpoint-tablet) {
+   margin-top: 20px;
+   margin: 0 auto;
+   margin-bottom: 40px;
+  }
+  @media (max-width: $breakpoint-laptop) {
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
 }

@@ -160,5 +160,13 @@ export default movieSlice.reducer
 
 - 
 
+- CLEANUP useEffect function in MovieDetail.jsx -->
+- when we change the movie, we can still see previous title of the movie after clicking on
+the next movie this is why we need a cleanup function
 
+- remove addMovies action because now it is a part of fetchAsyncMovies function 
 
+ // action
+        addMovies: (state, {payload}) => {
+            state.movies = payload;
+        },
