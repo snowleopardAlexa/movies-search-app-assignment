@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/snowleopardAlexa/movies-search-app-assignment">
-    <img src="public/console1.png" alt="Logo" width="80" height="80">
+    <img src="/public/console1.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Movies Search App Assignment</h3>
@@ -56,15 +56,15 @@
 <!-- ABOUT THE PROJECT -->
 ## Instagram-Clone
 
-![Alt text](public/readme/console1.png?raw=true "Movies Search App Assignment")
+![Alt text](/public/console1.png?raw=true "Movies Search App Assignment")
 
-![Alt text](public/readme/console2.png?raw=true "Movies Search App Assignment")
+![Alt text](/public/console2.png?raw=true "Movies Search App Assignment")
 
-![Alt text](public/readme/console3.png?raw=true "Movies Search App Assignment")
+![Alt text](/public/console3.png?raw=true "Movies Search App Assignment")
 
-![Alt text](public/readme/console4.png?raw=true "Movies Search App Assignment")
+![Alt text](/public/console4.png?raw=true "Movies Search App Assignment")
 
-![Alt text](public/readme/console5.png?raw=true "Movies Search App Assignment") https:...
+![Alt text](/public/console5.png?raw=true "Movies Search App Assignment") https:...
 
 ### Built With
 
