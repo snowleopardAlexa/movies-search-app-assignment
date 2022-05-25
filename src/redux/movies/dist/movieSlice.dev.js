@@ -9,8 +9,6 @@ var _toolkit = require("@reduxjs/toolkit");
 
 var _movieApi = _interopRequireDefault(require("../../components/apis/movieApi"));
 
-var _movieApiKey = require("../../components/apis/movieApiKey");
-
 var _extraReducers;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -21,6 +19,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//import { APIKey } from '../../components/apis/movieApiKey'
 var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMovies", function _callee(term) {
   var response;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -28,7 +27,7 @@ var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMovies",
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return regeneratorRuntime.awrap(_movieApi["default"].get("?apiKey=".concat(_movieApiKey.APIKey, "&s=").concat(term, "&type=movie")));
+          return regeneratorRuntime.awrap(_movieApi["default"].get("?apiKey=".concat(process.env.MOVIE_API_KEY, "&s=").concat(term, "&type=movie")));
 
         case 2:
           response = _context.sent;
@@ -49,7 +48,7 @@ var fetchAsyncMovieDetail = (0, _toolkit.createAsyncThunk)("movies/fetchAsyncMov
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return regeneratorRuntime.awrap(_movieApi["default"].get("?apiKey=".concat(_movieApiKey.APIKey, "&i=").concat(id, "&Plot=full")));
+          return regeneratorRuntime.awrap(_movieApi["default"].get("?apiKey=".concat(process.env.MOVIE_API_KEY, "&i=").concat(id, "&Plot=full")));
 
         case 2:
           response = _context2.sent;
