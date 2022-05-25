@@ -4,5 +4,5 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.APIKey = void 0;
-var APIKey = process.env.MOVIE_API_KEY;
+var APIKey = '1541e7e7';
 exports.APIKey = APIKey;
