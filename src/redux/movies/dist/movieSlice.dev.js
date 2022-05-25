@@ -24,21 +24,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // create async action creator in order to add extra reducers
 // createAsyncThunk takes two arguments - 1. string for async creator identifier, 2. payload creator callback function, 3. there is a third parameters to create async thunk wich is an object but we don't need it for this project
 // we add export to because we can't import fetchAsyncMovies from Home
-var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)('movies/fetchAsyncMovies', function _callee() {
-  var movieText, response;
+var fetchAsyncMovies = (0, _toolkit.createAsyncThunk)('movies/fetchAsyncMovies', function _callee(term) {
+  var response;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          movieText = "Cat";
-          _context.next = 3;
-          return regeneratorRuntime.awrap(_movieApi["default"].get("?apiKey=".concat(_movieApiKey.APIKey, "&s=").concat(movieText, "&type=movie")));
+          _context.next = 2;
+          return regeneratorRuntime.awrap(_movieApi["default"].get("?apiKey=".concat(_movieApiKey.APIKey, "&s=").concat(term, "&type=movie")));
 
-        case 3:
+        case 2:
           response = _context.sent;
           return _context.abrupt("return", response.data);
 
-        case 5:
+        case 4:
         case "end":
           return _context.stop();
       }

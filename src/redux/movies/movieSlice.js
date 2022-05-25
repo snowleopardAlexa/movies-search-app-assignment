@@ -6,10 +6,9 @@ import { APIKey } from "../../components/apis/movieApiKey";
 // createAsyncThunk takes two arguments - 1. string for async creator identifier, 2. payload creator callback function, 3. there is a third parameters to create async thunk wich is an object but we don't need it for this project
 // we add export to because we can't import fetchAsyncMovies from Home
 export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', 
-async() => {
-    const movieText = "Cat";
+async(term) => {
     const response = await movieApi
-    .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`
+    .get(`?apiKey=${APIKey}&s=${term}&type=movie`
     )
     // return async action creator
     return response.data

@@ -6,11 +6,13 @@
   padding: 0px 80px;
   color: $font-milk;
   font-weight: 400;
-  height: 150vh;
+  height: 100%;
   @media (max-width: $breakpoint-tablet) {
     flex-direction: column;
     padding: 0px 16px;
-    height: 200vh;
+  }
+  @media (max-width: $breakpoint-laptop) {
+    flex-direction: column;
   }
 
   .section__left {
@@ -192,5 +194,10 @@
   @media (max-width: $breakpoint-tablet) {
    margin-top: 20px;
    margin: 0 auto;
+   margin-bottom: 40px;
+  }
+  @media (max-width: $breakpoint-laptop) {
+    margin: 0 auto;
+    margin-bottom: 40px;
   }
 }

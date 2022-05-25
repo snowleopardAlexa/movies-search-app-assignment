@@ -8,13 +8,17 @@
   padding: 0px 80px;
   color: #fff;
   font-weight: 400;
-  height: 150vh;
+  height: 100%;
 }
 @media (max-width: 768px) {
   .movie__section {
     flex-direction: column;
     padding: 0px 16px;
-    height: 200vh;
+  }
+}
+@media (max-width: 820px) {
+  .movie__section {
+    flex-direction: column;
   }
 }
 .movie__section .section__left {
@@ -185,5 +189,12 @@
   .section__right {
     margin-top: 20px;
     margin: 0 auto;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 820px) {
+  .section__right {
+    margin: 0 auto;
+    margin-bottom: 40px;
   }
 }
