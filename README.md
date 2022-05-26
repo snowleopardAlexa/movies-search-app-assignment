@@ -64,7 +64,7 @@
 
 ![Alt text](/public/readme/console4.png?raw=true "Movies Search App Assignment")
 
-![Alt text](/public/readme/console5.png?raw=true "Movies Search App Assignment") https:...
+![Alt text](/public/readme/console5.png?raw=true "Movies Search App Assignment") https://movies-search-app-assignment-snowleopardalexa.vercel.app/
 
 ### Built With
 
