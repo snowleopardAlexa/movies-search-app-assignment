@@ -1,12 +1,12 @@
 @import "../../globalStyles/variables";
 
 .container {
-  margin-top: -40px;
-  background-color: $night-theme-color;
   height: 100%;
+  background-color: $night-theme-color;
   @media (max-width: $breakpoint-tablet) {
     height: 100%;
   }
+
   .movie__list {
     color: $font-milk;
     @media (max-width: $breakpoint-tablet) {
@@ -16,10 +16,11 @@
       flex-direction: column;
     }
     .movie__container {
-      width: 100%;
       position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
       background-color: $night-theme-color;
-      padding: 20px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: 12px;
@@ -43,13 +44,10 @@
     }
 
     .image__text {
-      margin-top: -150px;
+      margin-top: -350px;
       h3 {
         color: $font-milk;
         text-align: center;
-        @media (max-width: $breakpoint-tablet) {
-          margin-top: -300px;
-        }
       }
       p {
         color: $font-light-fog;

@@ -2,7 +2,7 @@ import './Home.scss'
 import MoviesList from '../MoviesList/MoviesList'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchAsyncMovies } from '../../redux/movies/movieSlice';
+import { fetchAsyncMovies } from '../../redux/movies/movieSlice'
 import { BiSearchAlt } from 'react-icons/bi'
 
 const Home = () => {
@@ -39,4 +39,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Home
