@@ -64,6 +64,8 @@
   border-top: 1px solid #7A8C99;
   border-right: 1px solid #7A8C99;
   border-bottom: 1px solid #7A8C99;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 7px;
 }
 .movie__rating .rating__imdb .rating__container .blank p {
@@ -86,6 +88,8 @@
   border-top: 1px solid #7A8C99;
   border-right: 1px solid #7A8C99;
   border-bottom: 1px solid #7A8C99;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 7px;
 }
 .movie__rating .rating__rotten__tomatoes .rating__container .blank p {
