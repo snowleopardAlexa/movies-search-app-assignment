@@ -27,7 +27,7 @@ const MoviesList = () => {
         <h3>Don't know what to search?</h3>
         <p>Here's an offer that you can't refuse</p>
       </div>
-    </div>
+     </div>
   )
 }
 

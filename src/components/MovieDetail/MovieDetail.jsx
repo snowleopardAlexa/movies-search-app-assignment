@@ -74,7 +74,7 @@ const MovieDetail = () => {
               <div className="rating__favorites">
               <div onClick={() => setLike((prevLike) => !prevLike)}>
               {like ? (
-                  <div className="rating__container__grey"  onClick={() => setCount(count + 1)}>
+                  <div className="rating__box__grey"  onClick={() => setCount(count + 1)}>
                     <span className="grey">
                      <AiOutlineHeart size="0.8em" />         
                     </span>
@@ -83,7 +83,7 @@ const MovieDetail = () => {
                     </span>
                   </div>
               ) : (
-                <div className="rating__container__color" onClick={() => setCount(count - 1)}>
+                <div className="rating__box__color" onClick={() => setCount(count - 1)}>
                 <span className="color">
                  <AiFillHeart size="0.8em" color="#fff" />         
                 </span>
@@ -93,7 +93,7 @@ const MovieDetail = () => {
               </div>
               )}
             </div>
-              </div>
+            </div>
             </li>
           </ul>
         </div>

@@ -94,7 +94,7 @@
   }
 
   .rating__favorites {
-    .rating__container__grey {
+    .rating__box__grey {
       padding: 10px;
       .grey {
         background-color: $night-theme-color;
@@ -122,7 +122,7 @@
       }
     }
   }
-  .rating__container__color {
+  .rating__box__color {
     padding: 10px;
     .color {
       background-color: $grapefruit-color;
