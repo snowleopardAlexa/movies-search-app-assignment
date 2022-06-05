@@ -1,0 +1,112 @@
+FRONT-END TESTING PYRAMID
+
+To test front-end component based web apps effectively, you need 3-4 types of tests. Unit tests, snapshot tests, integration tests, and e2e tests. 
+
+- UNIT TESTS
+- SNPASHOT TESTS
+- INTEGRATION TESTS
+- E2E TESTS 
+
+Overall unit test will make up the bulk of your tests, followed by snapshot tests, and a few e2e tests. 
+
+UNIT TESTS:
+- test units of a codebase | they call functions or units directly and make sure they return the correct result. 
+
+Libraries for Unit tests: Jest. 
+
+SNAPSHOT TESTS:
+- are very useful tool whenever you want to make sure your UI does not change unexpectedly. 
+- a typical snapshot test case renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. 
+
+Library for Snapshot tests: Jest. 
+
+INTEGRATION TESTS:
+- serve a critical place in testing plan by providing a balance between the speed of unit tests and the "real world" interactions of an end-to-end test. 
+- are interactions between React components typically performed via calling prop functions such as <Component onClick={onClickHandler}>
+- manipulation of component state.
+- direct manipulation of the DOM in React lifecycle methods.
+
+Libraries for integration tests: EnzymeJS and React Testing Library. 
+
+---> Why React Testing Library is better than Enzyme for integration testing???
+- Enzyme is a great library to do unit tests - it gives you the ability to render React components in memory or to the DOM while providing a jQuery-like API for traversing the react component tree. Enzyme's mount function renders your component to the DOM and there is nothing to stop you from rendering an entire React app. The same feature that allows you easily to unit test React components: access to component props and state, encourages poor testing practices when writing integration component tests. 
+- React Testing Library - provides and API which focuses on testing applications "as a user would" - it means an API that returns HTML elements rather than React Components and querying functions which query by text content - the stuff that user would actually see on a page or HTML data attributes - in case where fetching by text is not possible or practical. 
+- WAIT command is built in React Testing Library - it is a built in way to wait for a DOM element to happen such as waiting on an AJAX call. There is no WAIT command in Enzyme, and this is super important. 
+- the API in Enzyme resolves around manipulating React Components rather than DOM nodes (what the end user would be interacting with).
+- React Testing library provides a simple API rendering react components and performing simple queries on the generated output. The basic functions the library gives you for querying are returned in the result of the render function which might includ: getByText, getByLabelText, getByTextId (an "escape hatch" for fetching nodes by its data-testid attribute in cases where there is no text to fetch by). ---> API focuses on fetching by visible text on the page with getByText etc., this encourages you to test the application the way a user would see it rather how your code would see it. 
+
+END-TO-END TESTS:
+- it refers to a software testing method that involves testing an application's workflow from beginning to end. 
+- it replicates real user scenarios so that the system can be validated for integration and data integrity. 
+
+Libraries for e2e tests: Cypress. 
+
+BENEFITS OF UNIT TESTS:
+
+- unit tests are FAST ---> a suite of hundreds of unit tests runs in a few seconds. When refactoring code, we can change the code, and run the unit tests to check the changes didn't break the component. We will know within a few seconds if we broke anything, because one of the tests will fail. 
+- unit tests are granular ---> they are very specific. If a unit test is failing, the broken test will tell us how and why it's failing. Unit tests are good to check the fine details of how our application works. They are the best tool to use when developing, especially if you follow test driven development. 
+
+BENEFITS OF SNAPSHOT TESTS:
+
+- unit tests can't test everything. To make sure we're rendering the correct style, we need to use snapshot tests. 
+- snapshot tests are test that take a picture of your rendered component and compare it with a previous picture of your component. 
+- the best way to write snapshot tests in JS is with JEST ---> instead of taking a picture of the rendered component, jest takes a snapshot of the rendered component markup. This makes jest snapshot tests much fatser than traditional snapshot tests. 
+- to register a snapshot test in Jest, you need to add something like the code below:
+
+const renderedMarkup = renderToString(ModalComponent)expect(renderedMarkup).toMatchSnapshot()
+
+- once you register a snapshot, Jest takes care of everything else. Each time the unit tests are run it regenerates a snapshot and compares it against the previous snapshot. If the code changes, Jest throws an error and warns that the markup has changed. The developer can then check manually that no class has been deleted by accident. 
+- snapshot tests are a way of checking nothing has changed about the style or markup of a component.
+- if the snapshot tests pass, we know our code change didn’t affect the display of our components.
+- if the tests fail, then we know that we did affect the render of the components and can check manually that the style is still correct.
+- you should have at least 1 snapshot test per component. A typical snapshot test renders the component with some state to check it renders correctly.
+
+BENEFITS OF END-TO-END TESTS:
+
+- end to end tests are high-level tests. 
+- they perform the same actions as we would if we tested an App manually.
+- in our app we have a user journey. When the user clicks on the button the modal will open, when they click the button in the modal the modal closes.
+- we can write an end to end test that runs through this journey. The test will open the browser, navigate to the webpage, and run through each action to make sure the app is behaving correctly.
+- these tests tell us that our units are working together correctly. It gives us high confidence that the main functionality of the app is working.
+- there are a few ways to write end to end tests for JavaScript applications. There are programs like test cafe that record you performing actions in a browser and replay them as tests.
+- there are also projects like nightwatch that let you write the tests in JavaScript. I would recommend using a library like nightwatch. It’s easy to pick up, and the tests run faster than recorded tests.
+- that said, nightwatch tests are still relatively slow. A suite of 200 unit tests takes seconds to run, a suite of 200 end to end tests takes minutes to run.
+- the other problem with end to end tests is that they are difficult to debug. When a test fails, it’s hard to find out why it failed, because the tests cover a lot of functionality.
+
+BENEFITS OF INTEGRATION TESTS:
+
+- they make sure integrated components / modules such as API connectors work as intended.
+- they help components interact with APIs or other third-party applications. 
+- they detect errors related to the interface between modules. 
+- they increase the test coverage and improve the reliability of tests. 
+- they cover a large volume of the system, so they make testing more efficient. 
+
+
+********** EXAMPLE **********
+
+
+TESTING PYRAMID BASED ON AN EXAMPLE:
+
+The app is a simple modal app. Clicking a button opens a modal, and clicking an OK button on the modal closes the modal.
+
+The app is made from 3 components:
+- Button 
+- Modal 
+- App
+
+EXAMPLE APP TO TEST
+
+In the app, our components are units. The units tests are needed for Button and Modal. There is no need to write tests for App component because there is not any logic in it. 
+
+The unit tests will shallow render components and assert that they behave correctly when we interact with them.
+
+Shallow rendering means we render the component one level deep. This way we can make sure we’re only testing the component, our unit, and not a child component several levels down.
+
+In our tests we’ll trigger actions on the components and check that the components behave as expected.
+
+Specifications for components:
+- modal has class is-active when displayModal is true
+- modal does not have class is-active when displayModal is false
+- modal calls toggleModal when success button is clicked
+- modal calls toggleModal when delete button is clicked
+- button calls toggleModal when button is clicked

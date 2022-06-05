@@ -1,0 +1,54 @@
+TESTING WITH JEST - A COMPLEX GUIDE TO UNIT TESTS
+
+WHY DO WE NEED UNIT TESTING?
+
+A unit is the smallest piece of code that can be logically isolated in the system. Unit testing means testing these independent or individual units. 
+
+- early detection of bugs in the development phase itself - even before QA phase. 
+- unit tests help ensure that the new code does not break the existing old features - it helps with maintaining the code quality. 
+- easy to make code changes with the instant feedback loop.
+- saves time and money in the long run.
+
+JEST - is an open-source testing framework built on JavaScript, developed by Facebook. It is used mostly with React and React Native web / mobile applications. Jest is a UNIT test framework. Unit tests are not useful when run on the frontend of any software because they require extensive and time-consuming configuration. 
+Jest helps a lot of on that - it reduces to great extent the config and time spent on implementing Unit tests on the frontend apps. 
+
+Jest can validate almost everything - especially the BROWSER RENDERING of web-apps. Jest is widely preferred for AUTOMATED BROWSER TESTING, making it one of the most popular JS testing frameworks!
+
+Jest provides a blended package of an assertion library along with a TEST RUNNER and BUILT-IN MOCKING LIBRARY. It stands out by its simplicity which makes it an ideal tool to test JS libraries projects such as React.js, Vue.js, AngularJS, and TypeScript. 
+
+WHAT ARE ADVANTAGES AND DISADVANTAGES OF USING JEST
+
+PROS:
+
+- easy to install with zero setup. Jest provides you an integrated framework that is ready to use - out-of-the-box experience.
+- it is well documented and maintained - it is easy to learn for devs new to TDD - Test Driven Development.
+- is fast performing test automation framework where isolated tests are executed by performing parallel testing in their processes.
+- it provides testing support for asynchronous code.
+- it supports execution of SMART VISUAL REGRESSION TESTS by capturing screenshots - during development using ReactJS, this particular feature comes in handy for detecting UI bugs. This is done by recording the screenshot of a rendered component and then comparing it with the component rendered in the future test run. Also, when a new feature is added, the screenshots can be easilt updated. 
+- auto mocking is another out-of-the-box feature - Jest can mock any dependency imported in the module that needs to be tested in the future. 
+- Jest library provides pre-commit hooks that allow running only relevant tests or running tests that have changed after the last commit.
+- the code mods module offers many ways to integrate your current projects to sync with the latest framework seamlessly. 
+
+CONS:
+
+- compared to Jasmine and other frameworks, not many libraries and toolings are supported by Jest.
+- some devs claim that the learning curve of Jest is pretty hard.
+- leveraging auto-mocking can make tests slow - the more dependencies a module has, the more work needs to be done by Jest to mock it, which comes at the cost of performance. 
+- snapshot testing with jest is not so feasible for larger snapshot files containing thousands of lines. 
+
+
+WHO USES JEST
+
+- prominent companies that reprtedely adopt Jest in their tech stack are: FACEBOOK, AIRBNB, SPOTIFY, THE NEW YORK TIMES, TWITTER, INSTAGRAM. 
+
+
+CONCLUSION: 
+
+---> JEST is the default option for React or Next.js apps. React devs are recording a positive experience after using Jest. 
+- If the project requires debugging the test cases in an IDE that Jest does not support ---> JASMINE is the next best choice after Jest. 
+- If the project is quite big and requires the integration of various external libraries ---> JASMINE is a better option over JEST. Jest is more suitable for smaller projects as it provides a single integrated eco-space with pre-configured features like TEST RUNNER and ASSERTION LIBRARY. 
+- Jasmine is recommended in the Angular world because Angular CLI comes with Jasmine and Karma as the test runner. 
+- Large Node.js projects do well with MOCHA. 
+- JEST, JASMINE, and MOCHA are UNIT TESTING frameworks. 
+
+
