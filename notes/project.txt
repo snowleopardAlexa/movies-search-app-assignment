@@ -1,14 +1,40 @@
-In order to achieve this functionality:
+PROJECT NOTES
 
-- we fetch movies from the server
-- we add movies to redux store
-- retrieve movies from redux store
-- display movies on the screen
+App functionality:
 
-we are using synchronous action creators
 
-WE WANT TO --> convert synchronous action creators into ASYNC action creators
-with a help of MIDDLEWARE THUNK 
+1. Fetch movies from the API endpoint - OMDB free API.
+2. Create Search - write Search function. 
+2. Add movies to Redux store.
+3. Retrieve movies from Redux store. 
+4. Display movies on the screen. 
+
+- setup initial state that equals to movies, movies is property
+
+movieSlice.js
+
+import { createSlice } from '@reduxjs/toolkit'
+const initialState = {
+    movies: {}
+}
+
+- export actions and reducer
+
+export const { addMovies } = movieSlice.actions
+
+- get a value from store - state, name of the movieSlice, and name of the property from initialState
+
+export const getAllMovies = (state) => state.movies.movies
+export default movieSlice.reducer
+
+- synchronous action creators had been used in the code until I switched to async action creators
+
+
+- I converted synchronous action creators into async action creators with a help of MIDDLEWARE THUNK
+- API call built with a help of async action creator unables us to add extraReducers to the store.
+- async action creators = extraReducers 
+
+
 
 - Why Api call with the help of async action creator is better than a call with synchronous action creator?
 With async action creator we can add extraReducers 
@@ -16,34 +42,6 @@ With async action creator we can add extraReducers
 
 SYNCHRONOUS ACTION CREATOR 
 
-MOVIESLICE.JS
-
-import { createSlice } from '@reduxjs/toolkit'
-
-// setup intial state that equals to movies 
-// movies is property
-const initialState = {
-    movies: {}
-}
-
-// create slice
-const movieSlice = createSlice ({
-    name: 'movies',
-    initialState,
-    // actions are inside reducers
-    reducers: {
-        // action
-        addMovies: (state, {payload}) => {
-            state.movies = payload;
-        }
-    },
-})
-
-// export actions and reducer
-export const { addMovies } = movieSlice.actions
-// get a value from store - state, name of the movieSlice, and name of the property from initialState
-export const getAllMovies = (state) => state.movies.movies
-export default movieSlice.reducer
 
 
 STORE.JS
@@ -170,3 +168,10 @@ the next movie this is why we need a cleanup function
         addMovies: (state, {payload}) => {
             state.movies = payload;
         },
+
+
+        // add ESLint config 
+        // add Prettier config 
+        // add VSCode settings to auto-format on save 
+
+        

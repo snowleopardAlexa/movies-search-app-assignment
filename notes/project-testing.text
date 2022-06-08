@@ -31,3 +31,5 @@ A simple test consists of 3 parts:
 - select a specific HTML element 
 - we can add data-testid="mylink" to HTML element
 
+
+
