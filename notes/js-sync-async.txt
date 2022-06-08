@@ -1,0 +1,162 @@
+SYNCHRONOUS AND ASYNCHRONOUS PROGRAMMING IN JAVASCRIPT
+
+SYNC
+
+Synchronous code runs in sequence. This means that each operation must wait for the previous one to complete before executing. Operations task are performed ONE AT A TIME and only when one is completed, the following in unblocked. 
+
+console.log('One');
+console.log('Two');
+console.log('Three');
+// LOGS: 'One', 'Two', 'Three'
+
+ASYNC
+
+Asynchronous code runs in parallel. This means that an operation can occur while another one is still being processed. 
+
+console.log('One');
+setTimeout(() => console.log('Two'), 100);
+console.log('Three');
+// LOGS: 'One', 'Three', 'Two'
+
+Asynchronous code execution is often preferable in situations where execution can be blocked indefinitely ---> network requests, long-running calculations, file system operationcs etc. Using async code in the browser ensoures the page remains responsive and the user experience is mostly unaffected. You can move to another task before the previous one finishes. You are able to deal with MULTIPLE REQUESTS SIMULTANEOUSLY and thanks to this you can complete more tasks in a much shorter period of time. 
+
+********** CALLBACK FUNCTIONS **********
+
+A callback is a function passed as an argument to another function. This techique allows a function to call another function. A callback function can run after another function has finished. 
+
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);
+
+In the example, myDisplayer is the name of a function.
+It is passed to myCalculator() as an argument.
+
+When you pass a function as an argument, remember not to use parenthesis.
+Right: myCalculator(5, 5, myDisplayer)
+WRONG: myCaluclator(5,5, myDisplayer())
+
+WHEN TO USE CALLBACK FUNCTIONS?
+
+- async functions where one function has to wait for another function (like waiting for a file to load)
+
+
+********** ASYNCHRONOUS JAVASCRIPT **********
+
+Callback functions (passed as an argument to another function) are often used with async functions. 
+
+JS setTimeout() FUNCTION:
+
+setTimeout(myFunction, 3000);
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I love You !!";
+}
+
+myFunction is used as a callback
+
+myFunction is passed to setTimeout() as an argument
+
+3000 is the number of miliseconds before time-out, so myFunction() will be called after 3 seconds. 
+
+!!! When you pass a function as an argument, remember not to use parenthesis. 
+
+! Instead of passing the name of a function as an argument to another function, you can always pass a whole function instead:
+
+setTimeout(function() { myFunction("I love You !!!"); }, 3000);
+
+function myFunction(value) {
+  document.getElementById("demo").innerHTML = value;
+}
+
+In the example above, function(){ myFunction("I love You !!!"); } is used as a callback. It is a complete function. The complete function is passed to setTimeout() as an argument.
+
+3000 is the number of milliseconds before time-out, so myFunction() will be called after 3 seconds.
+
+JS setInterval() FUNCTION:
+
+When using the JS function setInterval(), you can specify a callback function to be executed for each interval:
+
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
+
+In the example above, myFunction is used as a callback.
+
+myFunction is passed to setInterval() as an argument.
+
+1000 is the number of milliseconds between intervals, so myFunction() will be called every second.
+
+WHEN TO USE ASYNC PROGRAMMING
+
+- async execution is not the best scenario for all use cases ---> use it only if you're dealing with independent tasks. 
+- identify the dependencies between processes and define which you can execute independently and which needs to be executed as a consequence of other processes. 
+- waiting for timeout, interval, file. 
+- API requests 
+
+********** PROMISES **********
+
+A Promise is a JS OBJECT that links the code that takes some time to execute and the code that must wait for the result. ---> producing and consuming code. 
+
+
+
+********** A KEY DIFFERENCE BETWEEN .THEN() AND ASYNC-AWAIT IN JS **********
+
+In JS .then() and await are the most commonly used functions for handling async nature of a Promise. 
+
+ASYNC AWAIT VS. THEN()
+
+When making async requests, you can either use then() or async/await. Async/await and then() are very similar. The difference is that in an async function, JS will PAUSE the function execution until the promise settles.
+With then(), the rest of the function will continue to execute but JS won't execute the .then() callback until the promise settles. 
+
+- async function - JS will PAUSE the function execution until the promise settles.
+- then() -  the rest of the function will continue to execute but JS won't execute the .then() callback until the promise settles. 
+
+async function test() {
+  console.log('Ready');
+  let example = await fetch('http://httpbin.org/get');
+  console.log('I will print second');
+}
+
+test();
+console.log('I will print first');
+
+- If you use promise chaining with then(), you need to put any logic you want to execute after the request in the promise chain. Any code that you put after fetch() will execute immediately, before the fetch() is done.
+
+function test() {
+  console.log('Ready');
+  let example = fetch('http://httpbin.org/get').then((res) => {
+    console.log('This is inside the then() block');
+  });
+  console.log('This is after the fetch statement where we are now executing other code that is not async');
+
+}
+
+test();
+console.log('this is after the entire function');
+
+- it is recommended to use async / await where possible and minimize PROMISE CHAINING. 
+- async / await makes JS code more accessible to developers that are not as familiar with JS, and much easier to read. 
+
+FETCH():
+
+- the fetch API provides a JS interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network. 
+
+
+
+
+
+
+
+

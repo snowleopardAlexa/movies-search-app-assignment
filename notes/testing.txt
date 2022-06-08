@@ -1,0 +1,42 @@
+TESTING - A COMPLEX GUIDE TO HOW TO TEST FRONTEND APPLICATIONS 
+
+Available JS frameworks / libraries  for Unit testing:
+- Jest, Enzyme ( library ).
+
+Available JS frameworks for E2E testing:
+- WebdriverJS, Protractor, WebdriverIO, NightwatchJS, Cypress, TestCafe. 
+
+Available JS libraries for Integration testing:
+- Enzyme, React Testing Library. 
+
+SELENIUM-BASED FRAMEWORKS VS. NON-SELENIUM BASED FRAMEWORKS:
+
+- Selenium-based frameworks use the WEB DRIVER approach to interact with the browsers wherease the Non-Selenium-based frameworks can INTERACT with the BROWSER DIRECTLY.  
+- No need to install drivers! --> a major win for Non-Selenium based frameworks!
+
+WHICH FRAMEWORKS IS THE BEST IN SELENIUM-BASED AND NON-SELENIUM BASED FRAMEWORKS?
+
+SELENIUM-BASED:
+
+- WebdriverIO requires a minimum effort to set up the environment, run tests and output reports. 
+- WebdriverJS comes next with a little more effort for setup. 
+
+NON-SELENIUM BASED:
+
+- TestCafe wins over Cypress as it has support to run in different browsers along with mobile browser support. 
+
+TOP 3 JS-BASED E2E TESTING FRAMEWORKS:
+
+- TestCafe ( non-selenium based )
+- WebdriverIO ( selenium based )
+- WebdriverJS (selenium based )
+
+All 3 are equally good but the decision to choose which one should be given a chance should be based on the TECH STACK and bandwidth of users who are going to be using this test framework in your project. 
+
+HOW TO TEST VISUAL CHANGES, IF NOT IN E2E?
+
+Visual testing is the act of verifying that an application's graphical user interface (GUI) appears correctly. The goal of the test is to find visual bugs so they can be fixed before the end-user sees them. 
+
+Visual testing can be used to verify content on a page. This is ideal for sites that have graphical functionality --> CHARTS, DASHBOARDS, etc., since verification with traditional automated functional testing tools can be very challenging. 
+
+VISUAL TESTING TOOLS --> BackdropJS and Screener. 

@@ -1,0 +1,35 @@
+HOW I TESTED THE MOVIES SEARCH APP ASSINGNMENT APP
+
+Why testing is important?
+
+- testing is important because our website will be visited by thousands or millions of users and we as developer are unable to think the way every user does. We need to test the app to see if it breaks if the user, for example, does not type an input text in Search Box and clicks the button to get the data from API. In this case the user will not see any data but the call to the API endpoint will be made and this will cost us a request. 
+- testing is important for security reasons. The hackers will be searching for the smallest bug in the code so they can use it to break the app. 
+- testing is important because it faciliates adding a new feature to the exsiting codebase - we make sure a new feature does not break the old code. 
+
+THE APP HAD BEEN TESTED WITH REACT TESTING LIBRARY, JEST, and CYPRESS. 
+
+- React Testing Library - DOM testing library. It handels DOM elements and how they behave in front of real users. 
+- JEST - unit testing framework.
+- CYPRESS - E2E - end-to-end testing framework. 
+
+REACT TESTING LIBRARY:
+- App.test.js and setupTests.js come as default in Create React App 
+
+JEST: 
+- I installed JEST framework via npm by using the command:
+
+CYPRESS: 
+- I installed CYPRESS framework via npm by using the command:
+
+
+HOW DOES A SIMPLE TEST WORK IN REACT TESTING LIBRARY:
+
+A simple test consists of 3 parts:
+
+- importing the library 
+- rendering the component inside code
+- select a specific HTML element 
+- we can add data-testid="mylink" to HTML element
+
+
+

@@ -1,0 +1,171 @@
+PROJECT NOTES
+
+App functionality:
+
+1. Create Navbar with logo in it.
+2. Add horse background image and write CSS - position absolute / relative.
+3. Fetch movies from the API endpoint - OMDB free API.
+4. Create Search - write Search function. 
+5. Create Redux Store
+2. Add movies to Redux store.
+3. Retrieve movies from Redux store. 
+4. Display movies on the screen. 
+5. Create Movie Detail page 
+6. Fetch Movie Details from API - Year, Runtime, Title, imdbRating, Actors, Plot, Genre, Director, Poster, Title.
+7. Style Movie Detail Component. 
+
+Recommended to use in production code:
+
+- ESLint config 
+- Prettier config 
+- VSCode settings to auto-format on save 
+
+PROJECT DETAILS 
+
+- setup initial state that equals to movies, movies is property
+
+movieSlice.js
+
+import { createSlice } from '@reduxjs/toolkit'
+const initialState = {
+    movies: {}
+}
+
+- export actions and reducer
+
+export const { addMovies } = movieSlice.actions
+
+- get a value from store - state, name of the movieSlice, and name of the property from initialState
+
+export const getAllMovies = (state) => state.movies.movies
+export default movieSlice.reducer
+
+- synchronous action creators had been used in the code until I switched to async action creators
+- I converted synchronous action creators into async action creators with a help of MIDDLEWARE THUNK
+- MIDDLEWARE THUNK ---> thunk is a programming concept where a function is used to delay the evaluation / calculation of an operation. Redux Thunk is a middleware that lets you call action creators that return a function instead of an action object. 
+- API call built with a help of async action creator enables us to add extraReducers to the store ---> - async action creators = extraReducers.
+
+* Why Api call with the help of async action creator is better than a call with synchronous action creator?
+- with async action creator we can add extraReducers. 
+- extraReducers allows createSlice to respond to other action types besides the types it has generated. 
+- extraReducers allows you to respond to an action in your slice reducer but does not create an action creator function.
+- use extraReducer when you need to create an action that you have already defined somewhere else. 
+
+
+- the store had been created in store.js 
+
+import { configureStore } from '@reduxjs/toolkit'
+import moviesReducer from "./movies/movieSlice"
+
+// create the store
+export const store = configureStore({
+    // reducer is an object
+    reducer: {
+        movies: moviesReducer
+    }
+})
+
+- search function had been written in Home.js component
+
+import './Home.scss'
+import MoviesList from '../MoviesList/MoviesList'
+import { useEffect } from "react";
+import movieApi from "../apis/movieApi";
+import { APIKey } from "../apis/movieApiKey";
+import { useDispatch } from "react-redux";
+import { addMovies } from "../../redux/movies/movieSlice";
+
+// whenever I get values from api, I want to DISPATCH AN ACTION
+// after dispatch - data is sent to reducer - this causes the state to update!
+// react hook useDispatch can't be called inside callback function
+
+const Home = () => {
+    const movieText = "Cat";
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      const fetchMovies = async () => {
+        const response = await movieApi
+          .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
+          .catch((err) => {
+            console.log("Error :", err);
+          });
+
+        // dispatch action addMovies is passing response.data - data is the key which contains all the resuslts
+        dispatch(addMovies(response.data));
+      };
+      fetchMovies();
+    }, []);
+    return (
+        <>
+        <div className="home__container">
+          <div className="search__box">
+              <input
+                type="text"
+                placeholder="Search movie..."
+              />
+          </div>
+        </div>
+        <MoviesList />
+        </>
+    );
+};
+
+export default Home;
+
+
+- fetch movie detail from API 
+
+- Movie Detail Component --> if we want to fetch movie detail data from API call, we have to add export const fetchAsyncMovieDetail to movieSlice.js and make:
+- async call based on { id }
+- change apiKey - include parameter i --> valid IMDb ID 
+- change apiKey - include paramteter plot --> either short or full --> check Parameters on OMDb API website (REST API parameters) !
+- write extra reducer for it - fetchAsyncMovieDetail.fullfilled
+
+- get the ID to pass to async action creator
+- we get the ID with the use of useParams
+- dispatch async action creator --> how --> use useEffect
+- get details from the store with the use of useSelector 
+- dispatch async action creator
+- pass id into function call()
+- add dispatch and imdbID to dependency - WARNING
+
+    const { imdbID } = useParams()
+    const dispatch = useDispatch()
+    const data = useSelector(getSelectedMovieDetail)
+    useEffect(() => {
+      dispatch(fetchAsyncMovieDetail(imdbID))
+    }, [dispatch, imdbID])
+
+- export selected movie detail in movieSlice
+
+- export actions and reducer
+- get a value from store - state, name of the movieSlice, and name of the property from initialState
+- export selected movie detail
+- console log data to console in MoviesDetails.jsx
+- log complete detail data in console
+
+export const { addMovies } = movieSlice.actions
+export const getAllMovies = (state) => state.movies.movies
+export const getSelectedMovieDetail = (state) => state.movies.selectMovieDetail
+export default movieSlice.reducer
+
+- dispatch async action creator
+- pass id into function call ()
+- add dispatch and imdbID to dependency - WARNING
+ 
+    console.log(data)
+    useEffect(() => {
+      dispatch(fetchAsyncMovieDetail(imdbID))
+    }, [dispatch, imdbID])
+
+
+- CLEANUP useEffect function in MovieDetail.jsx --> when we change the movie, we can still see previous title of the movie after clicking on the movie card ---> we need a cleanup function
+- remove addMovies action because now it is a part of fetchAsyncMovies function.
+
+  addMovies: (state, {payload}) => {
+    state.movies = payload;
+  },
+
+
+        

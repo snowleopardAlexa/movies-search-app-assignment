@@ -1,0 +1,81 @@
+CLOUD COMPUTING ARCHITECTURE 
+
+Cloud computing is ON-DEMAND accessibility of computer resources. Cloud computing refers to the idea of using a network of remote servers on the Internet to accumulate, manage, and route the data. Delivering any computing service on the Internet is cloud computing. These cloud computing services can be storage, server, database, software, networking, intelligence, and analytics. On-demand accessibility - you pay only for the services you are using. 
+
+Businesses are adopting cloud computing for:
+- multi-fold benefits like minimizing capital expenses
+- on-demand self-services
+- global scalability
+- optimum performance
+- security
+- high productivity
+- realiability 
+
+CLOUD COMPUTING FEATURES 3 LEVELS OF CONNECTIVITY:
+- CLOUD ---> virtual desktop, software platform, servers, applications, storage / data
+- ROUTER & SWITCHES 
+- END-USER ---> smartphone, tablet, laptop, computer
+
+DIVISONS OF CLOUD COMPUTING ARCHITECTURE:
+
+The cloud computing comprises two fundamental components --> FRONTEND and BACKEND. 
+
+Frontend works as a client in such architecture and communicates with the backend via a network or Internet. In the cloud computing architecture, the client-side or frontend is visible to end-user. The frontend sends queries to the backend via the MIDDLEWARE. 
+
+Backend protects the data and respond to the queries asked by the frontend. The backend is a bigger part of the whole cloud computing architecture. 
+
+CLOUD SERVICE MODEL IS CALLED BACKEND-AS-A-SERVICE - BaaS.
+
+COMPONENTS OF CLOUD COMPUTING ARCHITECTURE:
+
+The fundamental components of the cloud computing architecture are:
+
+- front-end platform
+- back-end platform
+- cloud-based delivery
+
+Besides the front-end and back-end platforms, cloud-based delivery allows transmitting information via various cloud infrastructures such as Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). 
+
+WHAT IS FRONT-END CLOUD ARCHITECTURE?
+
+The front-end infrastructure includes everything that the end-user interacts with. It is the broader assimilation of various sub-components that together offer the user interface. The front-end cloud infrastructure includes components like LOCAL NETWORKS, WEB BROWSERS, and WEB APPLICATIONS. 
+
+- User Interface: it refers to all the things that end-user access to send requests or perform any task on the Cloud. Some of the popular cloud-based user interfaces are Google Doc, Gmail.
+- Software: the software architecture in the front end is the software that runs on the user's end. Frontend software architecture primarily comprises client-side applications or browsers. 
+- Client Device or Network: being a crucial part of the frontend architecture, Client Device or Network refers to the hardware at the end user's side. It can be any input device or PC. In cloud computing, the client-side device doesn't require ability to process the heavy load. The cloud can take the entire heavy load and processes the same. 
+
+The backend architecture in the cloud empowers the frontend architecture. It comprises hardware & storage and they are located on a remote server. The cloud service provider controls and handles this backend cloud architecture.
+
+- Ideal backend cloud architecture always should be robust as it holds the whole infrastructure on the cloud. The prime components of backend cloud architecture are:
+- Application: The Application is a substantial part of the backend architecture. It refers to the user interface that the backend offers to the end-user to send queries. This layer of the backend takes care of the client’s requests and requirements.
+- Service: This is a magical area of the backend cloud architecture. It adds utility to the entire backend architecture. The service handles every task that runs on the cloud computing system. Some of the cloud services are application development environment, storage, and web services. Besides, service can execute a wide array of tasks on the cloud runtime.
+- Cloud Runtime: The term ‘Cloud Runtime’ is the concept where the services run. It’s like a cloud operating system where technology like virtualization is used. Virtualization as a key technology on the cloud which allows multiple runtimes on the same server. For instance, virtualization is a way via which we can create a base of software. In simple words, it’s the virtual representation of apps, servers, storage as well as networks. When we create runtimes with the support of virtualization software, they are called as Hypervisors. Some of the leading hypervisors are Oracle Virtual Box, Oracle VM for x86, VMWare Fusion, etc.
+- Storage: Storage in the cloud is where the data resides of a cloud application. The data storage varies as per different cloud service provides. However, all of them have a common dedicated segment for cloud storage. Some of the examples of storage are solid-state drives, hard drives, Intel Optane DC Persistent storage, etc. The hard drives in the server bays form storage in the cloud backend architecture. And especially in a cloud computing system, the software partitions the drives as per the needs of the OS in the cloud to run myriad services.
+- Infrastructure: The engine that steers all the cloud software services is called infrastructure. It includes CPU, Motherboard, Graphics Processing Unit (GPU), network cards, accelerator cards, etc. The infrastructure models always depend on the workloads of the clients.
+- Management: The management software allocates specific resources to specific tasks and responsible for the flawless functioning of any cloud environment. In technical terms, management is the ‘middleware’ and it coordinates between the frontend and backend architecture in a cloud computing system.
+- Security: Security is an integral and critical part of any cloud computing infrastructure. We create security infrastructure by keeping the debugging process in mind. In case of any issue, debugging should be easy. Regular storage backup is the first step to ensure security in a cloud computing system. And virtual firewalls are other crucial elements of the cloud security infrastructure.
+
+CLOUD-BASED DELIVERY:
+
+Cloud-based delivery is anything we are offering to the end-users from the cloud via some software, infrastructure, and platforms. We can deliver cloud computing services via:
+
+- SaaS - Software as a Service --> it offers cloud computing services via licensed software or subscription. In this delivery model, the end-users don't need to buy or install any hardware at their locations. 
+- Paas - Platform as a Service --> it offers a platform that allows the end-users to develop, run as well as manage applications on the cloud. In PaaS, a third-party service provider faciliates hardware & software tools. 
+- Infrastructure as a Service (IaaS) --> it faciliates computer hardware like networking technology, servers, storage, and data center space as a service. It also includes the delivery of virtualization technology and operaing system. 
+
+CLOUD SERVICE NETWORK
+
+We can offer cloud computing services via private and public networks. Besides, we can also use the end user’s network and offer the services via the intranet. Or else, we can combine both public and private networks to provide the services.
+
+In a cloud computing service network, the end-user can own a datacenter or they can use the service provider’s datacenter to enable on-demand access of various resources like server, storage, network, application, and services.
+
+FRONT-END ARCHITECTURE IN CLOUD COMPUTING 
+
+Front end architecture is a term used to denote any user-facing part of cloud computing architecture. This is the part that the end user interacts with, and it is comprised of subcomponents that make up the user experience. Front end architecture generally takes the form of a user interface and is an integral part of how the user interacts with cloud computing software. Most working IT professionals today will mainly interact with front-end cloud software architecture. 
+
+Examples of front-end architecture include web browsers, local networks and common web apps. Gmail, a popular cloud service used by millions daily, has its front-end architecture in the form of the web application. The interface allows users to access the services offered by the Gmail architecture as a whole. 
+
+Front end architecture is made up of three parts: 
+- Software Front end software architecture includes the software that allows cloud computing software to be run from the user’s side. In today’s web-powered world, the front-end software architecture generally takes the form of a web browser or client-side application. 
+- User Interface The user interface is what the end user directly interacts with in order to perform tasks on the cloud. This includes the text editor in services such as Google Docs, or the interface to send and receive emails on Gmail. However, in some cases, the UI and software architecture are rolled into one. 
+- Client Device/Network The client-side device or network is an integral part of front-end architecture. This includes client-side hardware such as the user’s PC and input devices. Generally, in cloud computing, the client device does not require a lot of computing power. This is because most of the “heavy” tasks are processed in the cloud.

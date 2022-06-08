@@ -1,0 +1,27 @@
+- Growth Design - New Case Study for UX Designers
+- Figma 
+- TypeScript - prevents 50% of bugs before they occur
+- TDD - good but costly
+- It is probably a good idea to use TypeScript on the frontend instead of TDD. TypeScript is not costly to use and TDD extends the development process drastically and it is costly for small teams. 
+- Both TypeScript and TDD helps with development of high quality code and maintaining it. They catch bugs in early stage. 
+- It is better to write tests alongside development process so we remember what a specific function does before we forget it. 
+- Jest with Snapshot Testing, Cypress, and React Testing Library are pretty decent to test frontend. 
+
+QUESTIONS:
+
+- Do you use Test Driven Development?
+- Tell me something about the product from technical side: whatever you think is important for me to know as frontend dev 
+
+
+
+- React, Redux, Context API, 
+- SASS, TailwindCSS
+- GraphQL, ApolloClient 
+- REST API 
+- Python - basics 
+- OOP and Functional programming - we are heading into functional phase now 
+- Good Design skills and UX skills 
+- Good communication skills 
+- Knowledge of Git and Github 
+- Firebase, MongoDB, MySql, PostgresSQL
+- Good understanding of CMS - Strapi, Sanity, GraphQL

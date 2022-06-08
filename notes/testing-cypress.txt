@@ -1,0 +1,41 @@
+TESTING WITH CYPRESS - A COMPLEX GUIDE TO E2E (end-to-end) TESTS
+
+WHY DO WE NEED END-TO-END (E2E) TESTING?
+
+End-to-End (E2E) testing is a technique used to test whether the flow of an application right from start to finish is behaving as expected. E2E is a software testing methodology to test an application flow from start to end. 
+
+- to identify system dependencies.
+- to ensure that data integrity is maintained between various system components and systems. 
+- to simulate the real user scenario.
+- test the complete flow of an application.
+- mimic the actual production scenario.
+- test application's integrity with its interfaces. 
+- E2E tests written by developers help to identify feature issues before the QA phase.
+- to reduce bugs occuring during development: payload regression changes --> e2e tests give us a bigger picture when multiple payloads are involved across the feature end-to-end. | visual regression changes --> e2e tests might report that the latest design changes fails in Safari but works in Chrome and Firefox and if we introduced a design regression which we were not supposed to. 
+
+WHAT ARE ADVANTAGES AND DISADVANTAGES OF TESTING WITH CYPRESS
+
+PROS:
+
+- it uses a REAL BROWSER to run tests. Other end-to-end testing frameworks like Selenium use a HEADLESS BROWSER to run their tests - a program that simulates a browser but doesn't display any user interface. These headless browsers have their own bugs that are different to those that can be found in real browsers like Chrome or Firefox. ---> tests run in a headless browser might not alwasy give us the same results that our users will get when they use our application (in the real browser). Cypress runs tests inside a real browser, which gives us results that are ALMOST identical to what users are going to experience. 
+- it has access to NETWROK LAYER over application, which allows us to control all the network requests that go in and out of our application. This can be extremely useful for doing things like simulating what happens when our server has en error. 
+- it takes the visibility of elements into account when running tests ---> if we are testing to see the behavior of a button when someone clicks it (visible: hidden), but the button is not visible or is hidden behind another element, or is off the screen, cypress will take that into account, and the test will fail. 
+- it has access to a lot of resources that other frameworks don't use, which means that it can do things like taking screenshotts and videos of our site, while cypress is running our tests. ---> it is useful when tests fail since we can simply watch what happens when a certain series of steps is followed.
+- it is very readable and intuitive ---> the code is a plain English. 
+
+CONS:
+
+- cypress is a bad automation tool for DATA MINING: data sets, pre-processing, classification, database, statistics, analytics, evaluation. 
+- it runs inside the browser and this means that the only language that cypress supports for writing tests is JavaScript, and it's the only language that cypress team will ever support. 
+- you can't test multiple tabs or multiple browser windows at the same time ---> cypress team has a good reason for that ---> if you want to test that clicking a link opens the link in a new tab, you really only need to check that the link has the target="_blank" set on. Anything further than that is not really testing the app, but testing the functionality of the browser which is something you don't need to do. 
+- if you want to test the functionality of chat app, you need two browsers to chat with each other, we can get around this with STUBBING. 
+- it doesn't allow us to visit two different superdomains in the smate test. A superdomain is what you might also call a domain name like google.com. Now, you can visit two different superdomains in two different tests, but not in the same test. In reality, the only time you should ever really need to visit more than one superdomain in one test is when working with things like OAuth providers, and there are workarounds for this as well. 
+
+
+
+
+
+
+
+
+
